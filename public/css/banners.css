@@ -1,0 +1,25 @@
+/* baner header*/
+.header{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 115px;
+    display: block;
+    background-color: #1D53A2;
+}
+.img_banner{
+    float: right;
+}
+
+.banner_swf{
+    height: 100%;
+    width: 100%;
+}
+
+footer{
+    bottom: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin-top: -200px;
+}

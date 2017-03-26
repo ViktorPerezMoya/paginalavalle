@@ -1,0 +1,10 @@
+<div class="row" style="padding: 50px 200px;">
+    <center>
+        <h1><?php echo $this->noticia->getTitulo(); ?></h1>
+    </center>
+    <?php echo $this->noticia->getContenido(); ?>
+    
+    
+    <a class="btn btn-info" href="<?php echo $this->url(array('controller'=>'departamento','action'=>'editar-historia')); ?>">Editar Seccion</a>
+</div>
+

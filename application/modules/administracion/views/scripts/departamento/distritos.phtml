@@ -1,0 +1,58 @@
+<?php
+$distritos = $this->distritos;
+?>
+
+<div class="row" style="padding: 50px 100px;">
+    <a class="btn btn-info" href="<?php echo $this->url(array('controller' => 'departamento', 'action' => 'nuevo-distrito')); ?>">Nuevo Distrito</a>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $distr = new My\Entity\Subcontenido();
+            foreach ($distritos as $distr):
+                if($distr->isMostrar()):
+                ?>
+            <tr id="<?php echo 'distrito-'.$distr->getId(); ?>">
+                    <td><?php echo $distr->getTitulo() ?></td>
+                    <td><?php echo $distr->getImagen() ?></td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="<?php echo $this->url(array('controller'=>'departamento','action'=>'editar-distrito','id'=>$distr->getId())) ?>">Editar</a>
+                        <button class="btn btn-danger btn-sm" id="<?php echo 'boton-' . $distr->getId(); ?>" onclick="eliminar(<?php echo $distr->getId(); ?>)">Eliminar</button>
+                    </td>
+                </tr>
+                
+                <?php
+                endif;
+            endforeach;
+            ?>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    function eliminar(id) {
+        var request = $.ajax({
+            url: "http://localhost/paginamuni/public/administracion/departamento/eliminar-distrito",
+            method: "POST",
+            data: {id: id},
+            dataType: "html"
+        });
+
+        request.done(function (msg) {
+            alert(msg);
+            $("#distrito-"+id).remove();
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+    }
+
+    
+</script>

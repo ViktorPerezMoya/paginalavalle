@@ -1,0 +1,95 @@
+<div class="contenedor">
+    <div class="contenedor-tab">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">H.C.D.</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Declaraciones</a></li>
+            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Ordenanzas</a></li>
+            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Resoluciones</a></li>
+            <li role="presentation"><a href="#settings2" aria-controls="settings" role="tab" data-toggle="tab">Ordenanza Tarifaria</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <center>
+                    <img class="img-responsive" src="<?php echo $this->baseUrl() . '/img/concejales.png'; ?>"/>
+                </center>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+
+                <?php
+                for ($i = 0; $i < 10; $i++):
+                    ?>
+                    <div class="media archivos-hcd">
+                        <div class="media-left">
+                            <a href="#">
+                                <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">DECLARACIÒN Nº 415/2009</h4>
+                            <p>Proyecto de Declaración referido a 1° Encuentro Provincial de Escritores.</p>
+                        </div>
+                    </div>
+                    <?php
+                endfor;
+                ?>
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="messages">
+                <?php
+                for ($i = 0; $i < 10; $i++):
+                    ?>
+                    <div class="media archivos-hcd">
+                        <div class="media-left">
+                            <a href="#">
+                                <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">ORDENANZA Nº 56/92</h4>
+                            <p>Proyecto referente a la regularización de locales de esparcimiento y diversión nocturna en el Departamento de Lavalle”, y sus acumulados</p>
+                        </div>
+                    </div>
+                    <?php
+                endfor;
+                ?>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="settings">
+                <?php
+                for ($i = 0; $i < 10; $i++):
+                    ?>
+                    <div class="media archivos-hcd">
+                        <div class="media-left">
+                            <a href="#">
+                                <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">RESOLUCIÓN Nº 4147/2.012</h4>
+                            <p>Proyecto referente a crear un “skatepark” para desarrollo actividad de skate o skateboarding, bike y rollers en el Departamento Lavalle.</p>
+                        </div>
+                    </div>
+                    <?php
+                endfor;
+                ?>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="settings2">
+                <div class="media archivos-hcd">
+                        <div class="media-left">
+                            <a href="#">
+                                <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">ORDENANZA TARIFARIA</h4>
+                            <p>Ordenanza Tarifaria 2014</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</div>

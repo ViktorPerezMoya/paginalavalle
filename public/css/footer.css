@@ -1,0 +1,49 @@
+
+@media(max-width: 480px){
+    .div_footer{
+        height: 100% !important;
+    }
+}
+.div_footer{
+    display: block;
+    height: 300px;
+    background-color: #444;
+    color: #d4d4d4;
+    font-size: 12px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.contacto > p{
+    margin-bottom: 5px !important;
+}
+
+.redes_sociales{
+    text-align: center;
+}
+.redes_sociales>.iconos-redes{
+    font-size: 5em !important;
+}
+
+
+.iconos-redes > a{
+    color: white !important;
+    text-decoration: none !important;
+}
+
+
+.iconos-redes > a.icono-redes:hover{
+    color: #d4d4d4 !important;
+}
+
+/*
+.iconos-redes > a.icono-redes:nth-of-type(3n+1):hover{
+    color: #3D7CC4 !important;
+}
+.iconos-redes > a.icono-redes:nth-of-type(3n+2):hover{
+    color: #F79F35 !important;
+    
+
+}
+.iconos-redes > a.icono-redes:nth-of-type(3n+3):hover{
+        color: #66A63C !important;
+}*/

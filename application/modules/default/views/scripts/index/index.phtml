@@ -1,0 +1,271 @@
+<?php
+$noticias = $this->noticiasportada;
+?>
+
+<div class="noticias_principales">
+    <div id="carousel-noticias-principales" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators" style="bottom: 5px;">
+            <?php
+            $contador = 0;
+            $primero = true;
+            foreach ($noticias as $not):
+                if ($primero) {
+                    $primero = false;
+                    ?>
+                    <li data-target="#carousel-noticias-principales" data-slide-to="<?php echo $contador; ?>" class="active"></li>
+                    <?php
+                    $contador++;
+                } else {
+                    ?>
+                    <li data-target="#carousel-noticias-principales" data-slide-to="<?php echo $contador; ?>"></li>
+                    <?php
+                    $contador++;
+                }
+            endforeach;
+            ?>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <?php
+            $n = new My\Entity\Noticia();
+            $primero = true;
+            foreach ($noticias as $n):
+                //var_dump($n->getImagenportada());
+                if ($primero) {
+                    $primero = false;
+                    ?>
+                    <div class="item active">
+                        <a href="<?php echo $this->url(array('controller' => 'noticias', 'action' => 'noticia', 'idnoticia' => $n->getId())); ?>"><img src="<?php echo $this->baseUrl() . '/img/noticias/portada/' . $n->getImagenportada(); ?>" alt="..." class="imagen_noticias" style="height: 479px;"></a>
+                        <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); padding-left: 20%; padding-right: 20%;width: 100%;left: 0;bottom: 0;">
+
+                            <h2><?php echo $n->getTitulo(); ?></h2>
+                            <p class="descripcion_notp">
+                                <?php echo $n->getCopete(); ?>
+                            </p>
+                        </div>
+                    </div>    
+                    <?php
+                } else {
+                    ?>
+                    <div class="item">
+                        <a href="<?php echo $this->url(array('controller' => 'noticias', 'action' => 'noticia', 'idnoticia' => $n->getId())); ?>"><img src="<?php echo $this->baseUrl() . '/img/noticias/portada/' . $n->getImagenportada(); ?>" alt="..." class="imagen_noticias" style="height: 479px;"></a>
+                        <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); padding-left: 20%; padding-right: 20%;width: 100%;left: 0;bottom: 0;">
+                            <h2><?php echo $n->getTitulo(); ?></h2>
+                            <p class="descripcion_notp">
+                                <?php echo $n->getCopete(); ?>
+                            </p>
+                        </div>
+                    </div>
+                    <?php
+                }
+            endforeach;
+            ?>
+
+
+
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-noticias-principales" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-noticias-principales" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<!-- INICIO DE NOTICIAS CECUNDARIAS  -->
+
+<div class="contenedor">
+
+    <div class="not_secundarias_intro">
+        <h1>Noticias de interes social</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida auctor ultricies. Cras cursus sit amet velit in fermentum. Aenean odio nulla, tempus non elit scelerisque, imperdiet semper est. Nulla convallis eros a nisi aliquam, nec pellentesque tortor volutpat. In quis porta enim. Suspendisse sagittis efficitur tristique. Mauris eu magna odio. Integer gravida neque diam. In hac habitasse platea dictumst.
+        </p>
+    </div>
+
+    <div class="not_secundarias">
+        <div class="row">
+
+            <div id="carousel-noti-secu" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <?php
+                    $esprimero = true;
+                    $noticias2 = $this->noticias;
+                    for ($i = 0; $i < sizeof($noticias2); $i = $i + 4) {
+                        if ($esprimero) {
+                            $esprimero = false;
+                            ?> 
+                            <div class="item active">
+                                <?php
+                                for ($j = $i; $j < 4; $j++) {
+                                    $n = $noticias2[$j];
+                                    ?>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="thumbnail thumbnail-noticia">
+                                            <a href="<?php echo $this->url(array('controller' => 'noticias', 'action' => 'noticia', 'idnoticia' => $n->getId())); ?>"><img src="<?php echo $this->baseUrl() . '/img/noticias/' . $n->getImagennota(); ?>" style="height: 225px; width: 300px;" class="img_not_sec"></a>
+                                            <div class="caption">
+                                                <h3><?php echo $n->getTitulo(); ?></h3>
+                                                <p>
+                                                    <?php echo $n->getCopete(); ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <?php
+                        } else if (!$esprimero) {
+                            ?> 
+                            <div class="item">
+                                <?php
+                                //var_dump($i);
+                                for ($j = $i; $j < $i + 4; $j++) {
+                                    $n = $noticias2[$j];
+                                    ?>
+                                    <div class="col-sm-6 col-md-3">
+                                        <div class="thumbnail thumbnail-noticia">
+                                            <a href="<?php echo $this->url(array('controller' => 'noticias', 'action' => 'noticia', 'idnoticia' => $n->getId())); ?>"><img src="<?php echo $this->baseUrl() . '/img/noticias/' . $n->getImagennota(); ?>" style="height: 225px; width: 300px;" class="img_not_sec"></a>
+                                            <div class="caption">
+                                                <h3><?php echo $n->getTitulo(); ?></h3>
+                                                <p>
+                                                    <?php echo $n->getCopete(); ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<!-- EXPERIMENTO  SLDER -->
+
+<div class="contenedor slider_inf">
+    <div class="titulo_servicios">
+        <h1>Servicios</h1>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper-container swiper-container-servicio"  id="slider_servicios">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide-servicio">
+                <div class="icono-servicio">
+                    <a href="#"><i class="fa fa-phone " aria-hidden="true"></i></a>
+                </div>
+                <div class="icono-servicio">
+                    <a href="#"><i class="fa fa-envelope-o " aria-hidden="true"></i></a>
+                </div>
+                <div class="icono-servicio">
+                    <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i></a>
+                </div>
+                <div class="icono-servicio">
+                    <a href="#"><i class="fa fa-bus" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="swiper-slide swiper-slide-servicio">
+                <div class="icono-servicio">
+                    <a href="#"><i class="fa fa-hospital-o" aria-hidden="true"></i></a>
+                </div>
+                <div class="icono-servicio">
+                    <a href="#"><i class="fa fa-camera-retro" aria-hidden="true"></i></a>
+                </div>
+                <div class="icono-servicio">
+                    <a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
+                </div>
+                <div class="icono-servicio">
+                    <a href="#"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+
+    <!-- Initialize Swiper -->
+</div>
+
+<!-- LINK Y SECCIONES -->
+<div class="contenedor links-secciones">
+    <h1>Links y Secciones</h1>
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="list-group">
+                <a href="#" class="list-group-item active lista-azul">
+                    Destacados
+                </a>
+                <a href="#" class="list-group-item">Foro Huanacache</a>
+                <a href="<?php echo $this->url(array('controller' => 'servicios', 'action' => 'farmacias')); ?>" class="list-group-item">Farmacias</a>
+                <a href="<?php echo $this->url(array('controller' => 'servicios', 'action' => 'cultura')); ?>" class="list-group-item">Casa de la Cultura Juanita Vera</a>
+                <a href="<?php echo $this->url(array('controller' => 'servicios', 'action' => 'ventanilla-unica')); ?>" class="list-group-item">Ventanilla Unica</a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="list-group">
+                <a href="#" class="list-group-item active lista-amarilla">
+                    Mas Servicios
+                </a>
+                <a href="<?php echo $this->url(array('controller' => 'servicios', 'action' => 'jardines-maternales')); ?>" class="list-group-item">Jardines Maternaes</a>
+                <a href="<?php echo $this->url(array('controller' => 'servicios', 'action' => 'delegaciones')); ?>" class="list-group-item">Delegaciones Municipales</a>
+                <a href="<?php echo $this->url(array('controller' => 'servicios', 'action' => 'cdr')); ?>" class="list-group-item">CDR</a>
+                <a href="<?php echo $this->url(array('controller' => 'servicios', 'action' => 'biblioteca-publica')); ?>" class="list-group-item">Biblioteca Publica</a>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="list-group">
+                <a href="#" class="list-group-item active lista-verde">
+                    LINKS
+                </a>
+                <a href="#" class="list-group-item">Portal Educativo</a>
+                <a href="#" class="list-group-item">Contingencias Climáticas</a>
+                <a href="#" class="list-group-item">FTyC</a>
+                <a href="<?php echo $this->url(array('controller' => 'acuerdo3949', 'action' => 'index')); ?>" class="list-group-item">Acuerdo 3949</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contenedor videos">
+    <div class="titulo-videos">
+        <h1>Nuestro canal <i class="fa fa-youtube-play" aria-hidden="true"></i> </h1>
+    </div>
+    <div class="contenedor-videos">
+        <?php
+        $videos = $this->videos;
+        $v = new My\Entity\Videos();
+        foreach ($videos as $v):
+            ?>
+            <article class="video">
+                <figure>
+                    <a href="https://www.youtube.com/watch?v=<?php echo $v->getIdyoutube(); ?>" target="_blank">
+                        <img class="videoThumb" src="https://i.ytimg.com/vi/<?php echo $v->getIdyoutube(); ?>/hqdefault.jpg"></a>
+                </figure>
+                <h2 class="videoTitle"><?php echo $v->getTitulo(); ?></h2>
+            </article>
+            <?php
+        endforeach;
+        ?>
+
+    </div>
+</div>

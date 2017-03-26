@@ -1,0 +1,23 @@
+<div class="row">
+    <center>
+        <?php
+        if (sizeof($this->candidata->getImagenes()) > 0) {
+            ?>
+            <img src="<?php echo $this->baseUrl() . '/img/candidatas/' . $this->candidata->getImagenes()[0]->getUrl(); ?>" class="img-responsive img-thumbnail">
+            <?php
+        } else {
+            ?>
+            <img src="<?php echo $this->baseUrl() . '/img/candidatas/default.jpg'; ?>" class="img-responsive img-thumbnail">
+            <p>Sin imagen</p>
+            <?php
+        }
+        ?>
+    </center>
+    <div class="col-md-12">
+        <center>
+            <?php
+            echo $this->form;
+            ?>
+        </center>
+    </div>
+</div>

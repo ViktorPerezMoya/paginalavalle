@@ -1,0 +1,90 @@
+.contenedor.reina{
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.img_reina{
+    height: 380px !important;
+    width: auto;
+}
+.presentacion-reina{
+    text-align: justify;
+}
+.seccion-galeria-principal{
+    margin-top: 10px !important;
+    margin-bottom: 10px;
+}
+.seccion-galeria{
+    background-color: #262626;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.seccion-nuevas-reinas{
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+/* candidatas */
+.seccion-candidatas{
+    background-color: #FAAB3F;
+}
+
+.seccion-candidatas > div.contenedor{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.img-candidata{
+    height: 200px;
+    width: 200px;
+    background-color: rgba(120, 163, 239, 0.75);
+}
+
+.candidatas{
+    margin-top: 25px;
+}
+.col-candidata{
+    width: 20%;
+}
+
+figure {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    margin: 10px;
+}
+
+figcaption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    color: #fff;
+    padding-top: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.75);
+
+    transform: rotate(60deg) scale(0,0);
+    transition: opacity .5s, transform .5s;
+}
+
+figure:hover figcaption {
+    opacity: 1;	
+    transform: rotate(0deg) scale(1,1);
+}
+
+.item-modal,.item-modal:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.descripcion_candidadta{
+    margin-left: 5%;
+}
+

@@ -1,0 +1,57 @@
+<div class="contenedor">
+    <div class="jumbotron">
+        <center><h1>Acuerdo 3949</h1></center>
+    </div>
+    <div id="formularioPeriodos">
+        <form action="" method="post" class="form-inline">
+            <select class="form-control" style="width: 250px;" name="acuerdo" id="acuerdo">
+                <?php foreach ($this->acuerdos as $arrayEjerPer): ?>
+                    <option value="<?php echo $arrayEjerPer['ejercicio'] . $arrayEjerPer['periodo']; ?>"><?php echo 'Ejercicio ' . $arrayEjerPer['ejercicio'] . ' periodo' . $arrayEjerPer['periodo']; ?></option>
+                <?php endforeach; ?>
+            </select>
+            <input type="submit" value="Buscar" class="btn btn-info">
+        </form>
+    </div>
+    <div id="resultado">
+        <?php
+        if (isset($this->var)) {
+            ?>
+        <table class="table table-bordered table-striped table-hover" style="margin-top: 10px;">
+                <thead>
+                    <tr>
+                        <th>Ejercicio</th>
+                        <th>Periodo</th>
+                        <th>Documento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $a = new My\Entity\Acuerdo();
+                    foreach ($this->acuerdosResult as $a):
+                        ?>
+                        <tr>
+                            <td><?php echo $a->getEjercicio(); ?></td>
+                            <td><?php echo $a->getPeriodo(); ?></td>
+                            <td><a href="<?php echo $this->baseUrl() . '/pdf/acuerdo3949/' . $a->getUrl(); ?>"
+                                    target="_blank" onclick="window.open(this.href, this.target, " width="700,height=600&quot;);return" false="" role="button" data-toggle="modal"><?php echo $a->getDescripcion(); ?></a></td>
+                        </tr>
+                        <?php
+                    endforeach;
+                    ?>
+                </tbody>
+            </table>
+            <?php
+        }
+        ?>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(window).ready(function () {
+        $("div.jumbotron").css({
+            "borderRadius": "5px",
+            "marginTop": "30px"
+        });
+    });
+</script>

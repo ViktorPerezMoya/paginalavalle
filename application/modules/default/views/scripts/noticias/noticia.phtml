@@ -1,0 +1,26 @@
+<?php 
+$n = $this->noticia;
+?>
+<div class="contenedor" style="margin-top: 20px;">
+    <div id="titular" style="text-align: center">
+        <h1><?php echo $n->getTitulo(); ?></h1>
+    </div>
+    <div id="copete">
+        <h3><?php echo $n->getCopete(); ?></h3>
+    </div>
+    <div id="contenido" style="padding-bottom: 100px">
+        <img class="img-responsive img-thumbnail" style="float: left;margin-right: 10px;margin-bottom: 5px;height: 225px;width: 300px;" src="<?php echo $this->baseUrl() . '/img/noticias/'.$n->getImagennota(); ?>">
+        <?php
+            echo $n->getContenido();
+        ?>
+<!--        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mattis nisi vel facilisis posuere. Phasellus vulputate mi quam, non faucibus arcu aliquam vel. Fusce efficitur non ex facilisis malesuada. Ut sed volutpat sem. Suspendisse quis convallis arcu. Nam et nibh mi. Donec imperdiet urna ut lectus hendrerit consectetur. Praesent finibus lacinia erat rhoncus elementum. Phasellus sed arcu odio. Nullam quam orci, venenatis eget tincidunt quis, maximus non ipsum. Nulla dignissim aliquet aliquam.</p>
+        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vestibulum laoreet orci, ac euismod magna tincidunt varius. Quisque id arcu maximus, placerat nisl id, gravida ipsum. Aliquam erat volutpat. Nunc commodo sapien ante, ac condimentum nunc volutpat vel. Sed ullamcorper varius mattis. Proin ac enim eget velit aliquam scelerisque vitae at tellus. Fusce vel orci id mauris viverra blandit quis a sapien. Etiam sit amet eleifend sem. Vivamus non massa in turpis convallis semper. Phasellus eget orci nec libero fringilla hendrerit. Vestibulum eget arcu iaculis, posuere ligula nec, vulputate nisl. Proin id erat pretium, auctor velit eget, tempus mauris. In tempus ligula vitae ornare auctor. Duis euismod libero at lacus ornare, nec condimentum ligula condimentum.</p>
+        <p style="text-align:center"><iframe align="middle" frameborder="0" height="360" scrolling="no" src="https://www.youtube.com/embed/t5Zeswhyp7w" width="640"></iframe></p>
+
+        <p>Praesent tincidunt eros metus, quis feugiat libero finibus at. Nulla a maximus augue. Quisque magna arcu, semper varius tincidunt a, aliquet vel nulla. Curabitur a lobortis nibh. Nulla ut felis non ipsum aliquam fringilla. Sed neque metus, ultricies eget dolor vel, accumsan pharetra mi. Nunc euismod enim at eros vehicula, vitae elementum magna semper. Quisque placerat, sapien in tempor varius, mi urna pulvinar leo, vel lobortis enim dui at sapien.</p>
+
+        <p>Suspendisse sed finibus elit. Praesent vel elit diam. Maecenas fermentum dolor nibh, a consequat ante scelerisque non. Nunc gravida quam eu mi tempor mollis. Curabitur bibendum congue metus, accumsan feugiat ligula tempor eget. Donec sed volutpat libero. Aliquam gravida diam neque, eu auctor tortor sollicitudin vitae. Maecenas eget arcu ut tellus iaculis dapibus. Vestibulum ornare diam et libero commodo accumsan. Donec aliquam odio eget purus finibus, et porttitor augue consequat. Proin et lorem maximus est aliquet pellentesque sit amet sit amet elit. Donec aliquet rutrum arcu a consectetur. Sed sagittis magna quis lorem eleifend, ac egestas diam aliquam. Donec a massa a risus imperdiet lacinia et vestibulum felis.</p>
+        <p style="text-align:center"><iframe align="middle" frameborder="0" height="360" scrolling="no" src="https://www.youtube.com/embed/FLjXAJApR5U" width="640"></iframe></p>-->
+
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="contenedor">
+    <br>
+    <div class="jumbotron">
+        <center><h1>Bienvenido Contribuyente!!</h1></center>
+        <small><a href="<?php echo $this->url(array('controller'=>'auth','action'=>'salir'));?>" style="float: right;padding: 20px;" >salir</a></small>
+    </div>
+    <div class="row">
+        <?php
+        if ($this->rol == "supervisor") {
+            ?>
+            <div class="col-md-4">
+                <center>
+                    <a href="#" class="btn btn-success btn-lg">Consulta Expedientes</a>
+                </center>
+            </div>
+
+
+            <div class="col-md-4">
+                <center>
+                    <a href="#" class="btn btn-danger btn-lg">Consulta Expedientes</a>
+                </center>
+            </div>
+
+            <div class="col-md-4">
+                <center>
+                    <a href="<?php echo $this->url(array('module'=>'administracion','controller'=>'index','action'=>'index')); ?>" class="btn btn-info btn-lg">Administrar contenido</a>
+                </center>
+            </div>
+            <?php
+        }else if ($this->rol == "administrador") {
+            ?>
+            <div class="col-md-6">
+                <center>
+                    <a href="#" class="btn btn-success btn-lg">Consulta Expedientes</a>
+                </center>
+            </div>
+
+            <div class="col-md-6">
+                <center>
+                    <a href="<?php echo $this->url(array('module'=>'administracion','controller'=>'index','action'=>'index')); ?>" class="btn btn-info btn-lg">Administrar contenido</a>
+                </center>
+            </div>
+            <?php
+        } else if ($this->rol == "invitado") {
+            ?>
+            <div class="col-md-12">
+                <center>
+                    <a href="#" class="btn btn-success btn-lg">Consulta Expedientes</a>
+                </center>
+            </div>
+
+
+            <?php
+        }
+        ?>
+    </div>
+</div>

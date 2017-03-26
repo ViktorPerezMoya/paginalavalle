@@ -1,0 +1,21 @@
+
+.videos{
+    display: block;
+}
+.titulo-videos{
+    text-align: center;
+}
+
+.titulo-videos i{
+    font-size: 1.5em;
+}
+
+.contenedor-videos{
+    display: flex;
+}
+
+@media(max-width: 480px){
+    .videoTitle{
+        display: none !important;
+    }
+}

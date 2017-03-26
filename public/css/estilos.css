@@ -1,0 +1,461 @@
+@import url(https://fonts.googleapis.com/css?family=Hind+Guntur);
+@import url(banners.css);
+@import url(menu.css);
+@import url(footer.css);
+@import url(vendimia.css);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Hind Guntur', sans-serif;
+}
+
+
+#main > div{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.noticias_principales,.imagen_principal_seccion_div{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.imagen_noticias, .imagen_principal_seccion{
+    width: 100% ;
+    height: 479px !important;
+    background: #333 !important;
+}
+
+/* noticias secundarias */
+.not_secundarias_intro{
+    text-align: center;
+    margin-top: 50px;
+}
+.contenedor{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.img_not_sec{
+    width: 100%;
+}
+
+.thumbnail-noticia > a > div.caption{
+    height: 330px;
+
+}
+
+/* Links y secciones*/
+.links-secciones{
+    margin-top: 50px;
+}
+
+.links-secciones h1{
+    text-align: center;
+}
+
+.lista-azul{
+    background-color: #1D53A2 !important;
+    border-color: #1D53A2 !important;
+}
+
+.lista-amarilla{
+    background-color: #F79F35 !important;
+    border-color: #F79F35 !important;
+}
+.lista-verde{
+    background-color: #66A63C !important;
+    border-color: #66A63C !important;
+}
+/*slider infiinito servicios*/
+.slider_inf{
+    margin-top: 50px;
+    padding-bottom: 50px;
+    height: 200px;
+}
+
+.icono-servicio{
+    font-size: 5em;
+    padding: 10px;
+    width: 100%;
+}
+.titulo_servicios{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.icono-servicio > a{
+    color: #333;
+}
+
+.icono-servicio > a:hover{
+    color: #666;
+}
+
+.a-servicos{
+    position: relative;
+}
+.data-serv{
+    font-size: 14px !important;
+}
+/* videos */
+.videos{
+    display: block;
+}
+.titulo-videos{
+    text-align: center;
+}
+
+.titulo-videos i{
+    font-size: 1.5em;
+}
+
+.contenedor-videos{
+    display: flex;
+}
+
+@media(max-width: 480px){
+    .videoTitle{
+        display: none !important;
+    }
+}
+/* footer*/
+
+/* seccion departamento */
+@media(max-width: 480px){
+    /* seccion departamento */
+    .seccion_historia > .row, .seccion_ubicacion > .row{
+        margin: 0 !important;
+    }
+}
+
+.seccion_historia > .row, .seccion_ubicacion > .row{
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 150px;
+    margin-top: 50px;
+}
+
+.botones_ubicacion{
+    margin-top: 50px;
+}
+
+/* departamentos */
+
+.col-departamento{
+    width: 20%;
+    margin: 15px;
+}
+
+.img-departamento{
+    height: 150px;
+    padding-top: 30px;
+}
+
+.departamento{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background:-webkit-gradient(radial, 165 0, 0, 191 41, 185, from(#dff0d8), to(#f79f35));
+}
+
+/*ECONOMIA*/
+div.lista-descarga{
+    width: max-content;
+}
+.icono{
+    float: right;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #66A63C;
+}
+
+.sectores-desarrollo{
+    margin-top: 100px;
+}
+
+
+.panel-info > .panel-heading {
+    color: #dff0d8;
+    background-color: #F79F35;
+    border-color: #F79F35;
+}
+
+.panel-heading {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.panel {
+    border-radius: 0px;
+}
+
+.panel-info {
+    border-color: #F79F35;
+}
+
+/* INTENDENCIA */
+.img-intendente{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    height: 300px !important;
+    width: 300px !important;
+    border-radius: 50% !important;
+}
+
+#descripcion-intendente{
+    text-align: left;
+    width: 60%;
+}
+#descripcion-asesoria{
+    text-align: left !important;
+    width: 60% !important;
+    margin-top: 50px;
+}
+
+/* seccio obras publicas*/
+.seccion-obras-publicas{
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.seccion-obras-publicas > div.row{
+    padding-top: 10px;
+}
+
+.descripcion_secretario{
+    margin-top: 40px;
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+    margin-bottom: 30px;
+}
+.descripcion_secretario_detalle{
+    margin-bottom: 40px;
+}
+
+#modalAmbiente > div > div > div.modal-body,
+#modalObrasPublicas > div > div > div.modal-body,
+#modalVivienda > div > div > div.modal-body{
+    padding-left: 40px !important;
+}
+
+/* hcd */
+.archivos-hcd{
+    margin-top: 20px !important;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.contenedor-tab{
+    margin-top: 50px;
+}
+
+/* turismo */
+.botones-sitios,.contenido-alojamiento, .contenido-gastronomia, .contenido-contacto-informes, .contenido-top-bottom{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+
+.botones-sitios > ul{
+    margin-left: 30px;
+}
+/* alojamiento*/
+.contenido-alojamiento > div.row, .contenido-gastronomia > div.row{
+    padding: 10px;
+}
+
+/* TRAMITES*/
+
+.contendor-tramite{
+    margin-top: 30px !important;
+    margin-bottom: 50px;
+}
+.contendor-tramites > div.row{
+    margin-top: 20px;
+}
+
+.tramite{
+    padding-left: 30px;
+}
+
+.contenedor-licitaciones {
+    margin-top: 30px; 
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+/*
+
+     centrado de texto
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+     sombra
+    box-shadow: 4px 4px 5px #999;
+*/
+.anime{
+    display:-webkit-flex;
+    display:-ms-flexbox;
+    display:flex;
+    margin-top: 10px;
+    -webkit-flex-direction:column;
+    -ms-flex-direction:column;
+    flex-direction:column;
+}
+@media screen and (max-width: 479px) {
+    .anime{
+        margin-bottom:2em;
+    }
+}
+.anime--flip{
+    -webkit-perspective:2000;
+    perspective:2000;
+}
+.anime--flip:hover .anime--flip__flipper{
+    -webkit-transform:rotateY(180deg);
+    transform:rotateY(180deg);
+}
+.anime--flip__flipper{
+    position:relative;
+    transition:all .3s;
+    -webkit-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+}
+.anime--flip__front,.anime--flip__back{
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+}
+.anime--flip__front{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    color: white;
+    height: 200px;
+    background-color: #1D53A2;
+    box-shadow: 4px 4px 5px #999;
+}
+.anime--flip__back{
+    color: white;
+    height: 200px;
+    background-color: #333;
+    position:absolute;
+    font-size: 12px;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    text-align: left;
+    -webkit-transform:rotateY(180deg);
+    transform:rotateY(180deg);
+    box-shadow: 4px 4px 5px #999;
+}
+
+.anime--flip__front > div.font{
+    font-size: 3em;
+    padding: 10px;
+    padding: 10px;
+}
+
+.anime--flip__back > div.back{
+    padding: 10px;
+}
+
+
+.link-lavalle{
+    text-decoration: none !important;
+    color: white;
+}
+
+a.link-lavalle:hover{
+    color: gainsboro;
+}
+
+/*agenda cultural */
+.panel-success {
+    border-color: #3c763d;
+}
+.panel-success > .panel-heading {
+    color: #fff;
+    background-color: #66A63C;
+    border-color: #3c763d;
+}
+
+.panel-warning {
+    border-color: #ef6f1b;
+}
+.panel-warning > .panel-heading {
+    color: #fff;
+    background-color: #F79F35;
+    border-color: #ef6f1b;
+}
+
+.panel-primary {
+    border-color: #1D53A2;
+}
+.panel-primary > .panel-heading {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #1D53A2;
+}
+
+.tabla-telefonos{
+    font-size: 18px;
+    background: #0398CA !important;
+    color: white;
+    padding: 3em;
+    margin: 2em;
+}
+
+.recorrido {
+    padding: 10px;
+    margin: 5px;
+    height: 400px;
+    width: 400px;
+    /*background-color: #999 !important;*/
+    background-image: url(../img/colectivo.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+
+    text-align: center;
+}
+
+.centrar-recorrido{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.recorrido > div.recuadro{
+    padding: 20px;
+    background-color: rgba(48,48,48, 0.8);
+}
+
+.recorrido > div.recuadro > a, .recorrido > div.recuadro > a{
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.colectivos{
+    padding-top: 50px;
+}
+
+.colectivos-centrar{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+}
+#fecha-noticia{
+    text-align: right !important; 
+    margin: 2px !important;
+    font-style: inherit !important;
+}

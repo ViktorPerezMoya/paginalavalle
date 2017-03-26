@@ -1,0 +1,17 @@
+<div class="row" style="padding-left: 50px;padding-right: 50px;">
+    <div class="jumbotron">
+        <center><h1>Editar Candidata <?php echo date('Y'); ?></h1></center>
+    </div>
+    <?php
+    echo $this->form;
+    ?>
+</div>
+<script type="text/javascript">
+    $(document).ready(function (){
+       $("input").css({"marginBottom":"5px"}); 
+       
+       $("#edad").keyup(function (){
+           this.value = (this.value + '').replace(/[^0-9]/g, '');
+       });
+    });
+</script>

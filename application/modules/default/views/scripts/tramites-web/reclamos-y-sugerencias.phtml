@@ -1,0 +1,72 @@
+<?php
+//$msj = $this->mensaje;
+//if(isset($msj)){
+//    echo '<script type="txt/javascript"> alert('.$msj.');</script>';
+//}
+//
+?>
+<!--<div class="contenedor">
+    <center><h1>Contacto</h1></center>
+<?php // echo $this->form;  ?>
+</div>-->
+
+<div class="contenedor">
+    <div class="jumbotron"><center><h1>Contacto</h1></center></div>
+    <form method="post">
+        <table>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" name="email" id="email" class="input-sm" required="true"/></td>
+            </tr>
+            <tr>
+                <td><label for="nombre">Nombre:</label></td>
+                <td><input type="text" name="nombre" id="nombre" class="input-sm" required="true"/></td>
+            </tr>
+            <tr>
+                <td><label for="asunto">Asunto:</label></td>
+                <td><input type="text" name="asunto" id="asunto" class="input-sm" required="true"/></td>
+            </tr>
+            <tr>
+                <td><label for="contenido">Contenido:</label></td>
+                <td><textarea name="descripcion" id="descripcion" class="input-sm" rows="10" cols="120" required="true"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn btn-info" onclick="enviar()">Enviar</button></td>
+            </tr>
+        </table>
+    </form>
+    
+</div>
+
+<script type="text/javascript">
+//    function enviar() {
+//        var email = $("#email").val();
+//        var nombre = $("#nombre").val();
+//        var asunto = $("#asunto").val();
+//        var contenido = $("#contenido").val();
+//
+//        var request = $.ajax({
+//            url: "http://localhost/paginamuni/public/tramites-web/guardar-mensaje",
+//            method: "POST",
+//            data: {email: email, nombre: nombre, asunto: asunto, contenido: contenido},
+//            dataType: "html"
+//        });
+//
+//        request.done(function (msg) {
+//            alert(msg);
+//            $("#email").text("");
+//            $("#nombre").text("");
+//            $("#asunto").text("");
+//            $("#contenido").text("");
+//            
+//            location.reload();
+//        });
+//
+//        request.fail(function (jqXHR, textStatus) {
+//            alert(textStatus);
+//        });
+//
+//
+//    }
+</script>

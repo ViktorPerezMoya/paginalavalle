@@ -1,0 +1,64 @@
+<div class="contenedor">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+
+            <table class="table table-striped" style="margin-top: 50px;">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Farmacia 1</td>
+                        <td>Calle 1234</td>
+                        <td>0303456</td>
+                        <td>DE TURNO</td>
+                        <th><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Ver mapa</a></th>
+                    </tr>
+                    <tr>
+                        <td>Farmacia 2</td>
+                        <td>Calle 12345</td>
+                        <td>0303456</td>
+                        <td> - </td>
+                        <th><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Ver mapa</a></th>
+                    </tr>
+                    <tr>
+                        <td>Farmacia 3</td>
+                        <td>Calle 56789</td>
+                        <td>0303456</td>
+                        <td> - </td>
+                        <th><a href="#" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Ver mapa</a></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2822.66140556748!2d-68.59658762574166!3d-32.71982746027416!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb93a3a7082c643c9!2sFarmacia+Santa+Rita!5e0!3m2!1ses-419!2sar!4v1484913973903" width="450" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </center>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

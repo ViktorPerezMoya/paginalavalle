@@ -1,0 +1,152 @@
+<div class="row">
+    <a href="<?php echo $this->url(array('controller' => 'vendimia', 'action' => 'nueva-candidata')); ?>" class="btn btn-danger btn-lg" style="margin: 30px;">Nueva Candidata</a>
+    <a href="#" class="btn btn-info btn-lg" style="margin: 30px;">Reina Actual</a>
+</div>
+<hr>
+<div class="row">
+
+    <?php
+    //var_dump($this->candidatas);die();
+    $c = new My\Entity\Candidata();
+    $cs = $this->candidatas;
+    foreach ($cs as $c):
+        ?>
+        <div class="col-md-3 col-sm-3">
+            <?php
+            if ($c->getImagenes()[0] != null) {
+                ?><a href="#" data-toggle="modal" data-target="#myModal<?php echo $c->getId_candidata(); ?>"><img class="img-responsive img-circle" style="float: left;margin-right: 20px;height: 250px;width: 250px;" src="<?php echo $this->baseUrl() . '/img/candidatas/' . $c->getImagenes()[0]->getUrl(); ?>"/></a><?php
+            } else {
+                ?><img class="img-responsive img-circle img-thumbnail" style="float: left;margin-right: 20px;height: 250px;width: 250px;" src="<?php echo $this->baseUrl() . '/img/candidatas/default.jpg'; ?>"/><?php
+                }
+                ?>
+
+            <div style="text-align: left;">
+                <p><strong>Nombre: </strong><?php echo $c->getNombre(); ?></p>
+                <p><strong>Distrito: </strong><?php echo $c->getDistrito(); ?></p>
+                <p><strong>Edad: </strong><?php echo $c->getEdad(); ?></p>
+                <p><strong>Ojos: </strong><?php echo $c->getOjos(); ?></p>
+                <p><strong>Cabello: </strong><?php echo $c->getCabello(); ?></p>
+                <p><strong>Estudios: </strong><?php echo $c->getEstudios(); ?></p>
+                <p><strong>Hobby: </strong><?php echo $c->getHobby(); ?></p>
+                <a class="btn btn-success btn-sm" href="<?php echo $this->url(array('controller' => 'vendimia', 'action' => 'editar-candidata', 'id' => $c->getId_candidata())); ?>">Editar</a>
+                <a class="btn btn-success btn-sm" href="<?php echo $this->url(array('controller' => 'vendimia', 'action' => 'agregar-imagen', 'id' => $c->getId_candidata())); ?>">Agregar Imagen</a>
+                <?php
+                if (!$c->getEstado()) {
+                    ?><button class="btn btn-danger btn-sm" id="<?php echo 'boton-' . $c->getId_candidata(); ?>" onclick="ocultar(<?php echo $c->getId_candidata(); ?>)">No mostrar</button><?php
+                } else {
+                    ?><button href="#" class="btn btn-success btn-sm" id="<?php echo 'boton-' . $c->getId_candidata(); ?>" onclick="mostrar(<?php echo $c->getId_candidata(); ?>)">Mostrar</button><?php
+                }
+                ?>
+            </div>
+
+        </div>
+    <?php endforeach; ?>
+
+</div>
+
+
+<?php
+foreach ($cs as $c) {
+    ?>
+    <!-- Modal -->
+    <div class="modal fadem" id="myModal<?php echo $c->getId_candidata(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Imagenes</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div id="carousel-example-generic<?php echo $c->getId_candidata(); ?>" class="carousel slide" data-ride="carousel">
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <?php
+                            $cont = 1;
+                            foreach ($c->getImagenes() AS $img):
+                                if ($cont == 1) {
+                                    ?>
+                                    <div class="item active">
+                                        <img src="<?php echo $this->baseUrl() . '/img/candidatas/' . $img->getUrl(); ?>">
+                                    </div>
+                                    <?php
+                                    $cont++;
+                                } else {
+                                    ?>
+
+                                    <div class="item">
+                                        <img src="<?php echo $this->baseUrl() . '/img/candidatas/' . $img->getUrl(); ?>">
+                                    </div>
+                                    <?php
+                                }
+                            endforeach;
+                            ?>
+                        </div>
+
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic<?php echo $c->getId_candidata(); ?>" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic<?php echo $c->getId_candidata(); ?>" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+?>
+
+<script type="text/javascript">
+    function mostrar(id) {
+        var request = $.ajax({
+            url: "http://localhost/paginamuni/public/administracion/candidatas/mostrar",
+            method: "POST",
+            data: {idnoticia: id},
+            dataType: "html"
+        });
+
+        request.done(function (msg) {
+            alert(msg);
+            $("#boton-" + id).removeClass('btn-success');
+            $("#boton-" + id).addClass('btn-danger');
+            $("#boton-" + id).text("No mostrar");
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+    }
+
+    function ocultar(id) {
+
+        var request = $.ajax({
+            url: "http://localhost/paginamuni/public/administracion/candidatas/ocultar",
+            method: "POST",
+            data: {idnoticia: id},
+            dataType: "html"
+        });
+
+        request.done(function (msg) {
+            alert(msg);
+            $("#boton-" + id).removeClass('btn-danger');
+            $("#boton-" + id).addClass('btn-success');
+            $("#boton-" + id).text("Mostrar");
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+    }
+</script>
+
+

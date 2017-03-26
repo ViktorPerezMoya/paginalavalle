@@ -1,0 +1,16 @@
+<div class="contenido">
+    <center>
+        <h1>Acceso</h1>
+        <br>
+        <br>
+        <?php echo $this->form; ?>
+
+        <?php echo $this->message; ?>
+    </center>
+    <div style="margin: 20px;">
+        <center>
+            <a href="#" style="padding-right: 10px;">Olvidaste tu contraseña?</a>
+            <a href="<?php echo $this->url(array('controller'=>'auth','action'=>'registrarse')); ?>">Registrate</a>
+        </center>
+    </div>
+</div>

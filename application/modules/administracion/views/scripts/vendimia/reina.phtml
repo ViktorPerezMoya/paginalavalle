@@ -1,0 +1,32 @@
+<div class="row">
+    <?php
+    $reina = $this->reina;
+    //$reina = new My\Entity\Candidata();
+    if ($reina != NULL) {
+        ?>
+        <center>
+            <div style="margin: 10px;">
+                <h1>Reina periodo <?php echo $reina->getPeriodo(); ?></h1>
+                <img class="img img-circle" style="height: 250px;width: 250px;padding: 10px;" s src="<?php echo $this->baseUrl() . '/img/candidatas/' . $reina->getImagenes()[0]->getUrl(); ?>">
+                <div >
+                    <p><strong>Nombre: </strong><?php echo $reina->getNombre(); ?></p>
+                    <p><strong>Distrito: </strong><?php echo $reina->getDistrito(); ?></p>
+                    <p><strong>Edad: </strong><?php echo $reina->getEdad(); ?></p>
+                    <p><strong>Ojos: </strong><?php echo $reina->getOjos(); ?></p>
+                    <p><strong>Cabello: </strong><?php echo $reina->getCabello(); ?></p>
+                    <p><strong>Estudios: </strong><?php echo $reina->getEstudios(); ?></p>
+                    <p><strong>Hobby: </strong><?php echo $reina->getHobby(); ?></p>
+                </div>
+            </div>
+            <hr>
+            <?php echo $this->form; ?>
+        </center>
+        <?php
+    }
+    
+    
+    ?>
+    
+    
+    
+</div>

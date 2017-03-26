@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <?php echo $this->headTitle(); ?>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <?php
+        echo $this->headLink()
+                ->prependStylesheet($this->baseUrl() . '/css/font-awesome.min.css')
+                ->prependStylesheet($this->baseUrl() . '/css/sliderswiper.css')
+                ->prependStylesheet($this->baseUrl() . '/css/swiper.css')
+                ->prependStylesheet($this->baseUrl() . '/css/fontello.css')
+                ->prependStylesheet($this->baseUrl() . '/css/videos/videos.css')
+                ->prependStylesheet($this->baseUrl() . '/css/estilos.css')
+                ->prependStylesheet($this->baseUrl() . '/css/galeria_vendimia/blueimp-gallery.css');
+        ?>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+              <!--<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+    </head>
+    <body>
+        <header>
+            <div id="cabecera" class="header">
+                <!--<img class="img_banner" src="<?php // echo $this->baseUrl()."/img/header/logo.png"        ?>">-->
+                <!--<embed class="banner_cuadrado" id="eplb9b4e0b48ac0a875f_embed" name="eplb9b4e0b48ac0a875f" src="<?php // echo $this->baseUrl()."/banner/banner_header.swf"        ?>" quality="autohigh" loop="true" allowscriptaccess="always" allowfullscreen="true" flashvars="clickTag=http%3A//ads.e-planning.net/ei/3/4cfd/HOME/INTERNOTA11%3Frnd%3D0.9425163103733212%26pb%3D9b4e0b48ac0a875f%26fi%3D9a75f13f3aa1096d" wmode="opaque" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="1366" height="115" border="0">-->
+                <object class="banner_swf"type="application/x-shockwave-flash" width="1365" height="115" data="<?php echo $this->baseUrl() . "/banner/banner_header.swf" ?>"></object>
+            </div>
+            <div id="div_menu" class="div_menu">
+                <input type="checkbox" id="btn-menu">
+                <label for="btn-menu">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </label>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')); ?>">Inicio</a></li>
+                        <li><a href="<?php echo $this->url(array('controller' => 'vendimia', 'action' => 'index')); ?>">Vendimia</a></li>
+                        <li><a href="#">Departamento</a>
+                            <ul>
+                                <li><a href="<?php echo $this->url(array('controller' => 'departamento', 'action' => 'historia')); ?>">Historia</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'departamento', 'action' => 'ubicacion')); ?>">Ubicacion Geográfica</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'departamento', 'action' => 'economia')); ?>">Economía</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'departamento', 'action' => 'galeria-imagenes')); ?>">Galería de Imágenes</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Gobierno</a>
+                            <ul>
+                                <li><a href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'intendencia')); ?>">Intendencia</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'asesoria-legal')); ?>">Acesoría Legal</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'areas-municipales')); ?>">Areas Municipales</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'secretaria-de-obras-y-servicios-publicos')); ?>">Secretaría de Obras y Servicios Públicos</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'concejo')); ?>">Honorable Concejo Deliberante</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'catastro')); ?>">Catastro</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Turismo</a>
+                            <ul>
+                                <li><a href="<?php echo $this->url(array('controller' => 'turismo', 'action' => 'sitios')); ?>">Sitios de Interés</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'turismo', 'action' => 'alojamiento')); ?>">Alojamiento</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'turismo', 'action' => 'gastronomia')); ?>">Gastronomía</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'turismo', 'action' => 'contacto-informes')); ?>">Contacto e Informes</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'turismo', 'action' => 'agenda-cultural')); ?>">Agenda Cultural</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Tramites web</a>
+                            <ul>
+                                <li><a href="<?php echo $this->url(array('controller' => 'tramites-web', 'action' => 'guia')); ?>">Guía de Trámites</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'tramites-web', 'action' => 'licitaciones')); ?>">Licitaciones</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'tramites-web', 'action' => 'reclamos-y-sugerencias')); ?>">Reclamos, Pedidos o Sugerencias</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Noticias</a>
+                            <ul>
+                                <li><a href="<?php echo $this->url(array('controller' => 'noticias', 'action' => 'novedades')); ?>">Novedades</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'noticias', 'action' => 'todas')); ?>">Archivo Histórico</a></li>
+                                <li><a href="<?php echo $this->url(array('controller' => 'noticias', 'action' => 'crecemos')) ?>">Revista Crecemos</a></li>
+                            </ul>
+                        </li>
+                        <?php
+                        if (Zend_Auth::getInstance()->getInstance()->getIdentity()) {
+                            ?>
+                        <li style="float: right;"><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'bienvenido')); ?>"><?php echo 'Usuario: '.Zend_Auth::getInstance()->getIdentity()->getNombre(); ?></a></li>
+                            <?php
+                        }else{
+                            ?>
+                        <li style="float: right;"><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login')); ?>">Iniciar Sesion</a></li>
+                            <?php
+                        }
+                        ?>
+
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div id="main">
+                <?php echo $this->layout()->content; ?>
+
+
+            </div>
+
+        </main>
+        <footer>
+            <!--<object class="banner_swf"type="application/x-shockwave-flash" width="1365" height="115" data="<?php // echo $this->baseUrl() . "/banner/banner_footer.swf"       ?>"></object>-->
+            <div class="div_footer">
+                <div class="row">
+                    <div class="col-md-3 contacto">
+                        <h3>Direccion de hacienda</h3>
+                        <p><label>Dirección:</label> Beltran 37 - Villa Tulumaya</p>
+                        <p><label>E-mail:</label> hacienda@lavallemendoza.gov.ar</p>
+                        <p><label>Teléfono:</label> 4940001</p>
+                    </div>
+                    <div class="col-md-3 contacto">
+                        <h3>Catastro</h3>
+                        <p><label>Dirección:</label> Beltran 37 - Villa Tulumaya</p>
+                        <p><label>E-mail:</label> catastro@lavallemendoza.gov.ar</p>
+                        <p><label>Teléfono:</label> 4940002</p>
+                    </div>
+
+                    <div class="col-md-3 contacto">
+                        <h3>Prensa</h3>
+                        <p><label>Dirección:</label> Beltran 37 - Villa Tulumaya</p>
+                        <p><label>E-mail:</label> prensa@lavallemendoza.gov.ar</p>
+                        <p><label>Teléfono:</label> 4940003</p>
+                    </div>
+
+                    <div class="col-md-3 contacto">
+                        <h3>Delegacion Costa de Araujo</h3>
+                        <p><label>Dirección:</label> Beltran 37 - Costa de Araujo</p>
+                        <p><label>E-mail:</label> delegacioncosta@lavallemendoza.gov.ar</p>
+                        <p><label>Teléfono:</label> 4940004</p>
+                    </div>
+                </div>
+
+                <div class="redes_sociales">
+                    <h3>Siguenos en nuestras redes</h3>
+                    <div class="iconos-redes">
+                        <a class="icono-redes" href="#"><i class="icon-facebook"></i></a>
+                        <a class="icono-redes" href="#"><i class="icon-youtube"></i></a>
+                        <a class="icono-redes" href="#"><i class="icon-twitter"></i></a>
+                        <!--<a href="#"><i class="icon-google-plus"></i></a>-->
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <?php
+        echo $this->headScript()
+                //->appendFile($this->baseUrl() . '/js/jquery-1.11.3.js')
+                ->appendFile($this->baseUrl() . '/js/galeria_vendimia/blueimp-helper.js')
+                ->appendFile($this->baseUrl() . '/js/galeria_vendimia/blueimp-gallery.js')
+                ->appendFile($this->baseUrl() . '/js/galeria_vendimia/jquery.blueimp-gallery.js')
+                ->appendFile($this->baseUrl() . '/js/swiper.js')
+                ->appendFile($this->baseUrl() . '/js/script.js');
+        ?>
+    </body>
+</html>

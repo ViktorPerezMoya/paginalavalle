@@ -1,0 +1,101 @@
+
+<div class="row">
+    <div class="jumbotron">
+        <center><h2>Noticias</h2></center>
+    </div>
+    <div class="col-md-12" style="padding-left: 50px;padding-right: 50px;">
+        <a class="btn btn-primary" href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'nueva-noticia')); ?>" style="float: right;">Nueva Noticia</a>
+        <table class="table table-striped table-hover" id="example" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Fecha</th>
+                    <th>Imagen Portada</th>
+                    <th width="100">Imagen Nota</th>
+                    <th  width="50">Usuario</th>
+                    <th width="120">Mostrar</th>
+                    <th width="400">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $noticia = new My\Entity\Noticia();
+                foreach ($this->noticias as $noticia):
+                    ?>
+                    <tr>
+                        <td><?php echo $noticia->getTitulo(); ?>                             </td>
+                        <td><?php echo $noticia->getFecha(); ?>  </td>
+                        <td><?php echo $noticia->getImagenportada(); ?>                      </td>
+                        <td><?php echo $noticia->getImagennota(); ?>                         </td>
+                        <td><?php echo $noticia->getUsuario(); ?>                            </td>
+                        <td>
+                            <?php
+                            if ($noticia->isMostrar()) {
+                                ?><button class="btn btn-danger btn-sm" id="<?php echo 'boton-' . $noticia->getId(); ?>" onclick="ocultar(<?php echo $noticia->getId(); ?>)">No mostrar</button><?php
+                            } else {
+                                ?><button href="#" class="btn btn-success btn-sm" id="<?php echo 'boton-' . $noticia->getId(); ?>" onclick="mostrar(<?php echo $noticia->getId(); ?>)">Mostrar</button><?php
+                            }
+                            ?>                                                                  </td>
+                        <td>
+                            <a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'modificar-noticia', 'idnoticia' => $noticia->getId())); ?>" class="btn btn-primary btn-sm">Modificar</a>
+                            <a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'cambiar-imagen-portada', 'idnoticia' => $noticia->getId())); ?>" class="btn btn-primary btn-sm">Imagen Principal</a>
+                            <a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'cambiar-imagen-nota', 'idnoticia' => $noticia->getId())); ?>" class="btn btn-primary btn-sm">Imagen Nota</a>
+                        </td>
+                    </tr>
+                    <?php
+                endforeach;
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+
+
+    function mostrar(id) {
+        var request = $.ajax({
+            url: "http://localhost/paginamuni/public/administracion/noticia/mostrar",
+            method: "POST",
+            data: {idnoticia: id},
+            dataType: "html"
+        });
+
+        request.done(function (msg) {
+            alert(msg);
+            $("#boton-" + id).removeClass('btn-success');
+            $("#boton-" + id).addClass('btn-danger');
+            $("#boton-" + id).text("No mostrar");
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+    }
+
+    function ocultar(id) {
+
+        var request = $.ajax({
+            url: "http://localhost/paginamuni/public/administracion/noticia/ocultar",
+            method: "POST",
+            data: {idnoticia: id},
+            dataType: "html"
+        });
+
+        request.done(function (msg) {
+            alert(msg);
+            $("#boton-" + id).removeClass('btn-danger');
+            $("#boton-" + id).addClass('btn-success');
+            $("#boton-" + id).text("Mostrar");
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+    }
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

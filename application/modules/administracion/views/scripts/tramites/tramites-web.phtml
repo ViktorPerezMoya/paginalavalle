@@ -1,0 +1,56 @@
+<?php
+$trams = $this->tram;
+?>
+
+<div class="row" style="padding: 50px 100px;">
+    <a class="btn btn-info" href="<?php echo $this->url(array('controller' => 'tramites', 'action' => 'nuevo-tramite')); ?>" style="float: right">Nuevo Distrito</a>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $tram = new My\Entity\Subcontenido();
+            foreach ($trams as $tram):
+                if($tram->isMostrar()):
+                ?>
+            <tr id="<?php echo 'tramite-'.$tram->getId(); ?>">
+                    <td><?php echo $tram->getTitulo() ?></td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="<?php echo $this->url(array('controller'=>'tramites','action'=>'editar-tramite','id'=>$tram->getId())) ?>">Editar</a>
+                        <button class="btn btn-danger btn-sm" id="<?php echo 'boton-' . $tram->getId(); ?>" onclick="eliminar(<?php echo $tram->getId(); ?>)">Eliminar</button>
+                    </td>
+                </tr>
+                
+                <?php
+                endif;
+            endforeach;
+            ?>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    function eliminar(id) {
+        var request = $.ajax({
+            url: "http://localhost/paginamuni/public/administracion/tramites/eliminar-tramite",
+            method: "POST",
+            data: {id: id},
+            dataType: "html"
+        });
+
+        request.done(function (msg) {
+            alert(msg);
+            $("#tramite-"+id).remove();
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+    }
+
+    
+</script>

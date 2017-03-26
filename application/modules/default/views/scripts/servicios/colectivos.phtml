@@ -1,0 +1,66 @@
+<div id="colectivos" class="row colectivos colectivos-centrar">
+    <div id="ruta24" class="col-md-5 recorrido centrar-recorrido">
+        <div class="recuadro"><a href="#">Ruta 24 <i class="fa fa-download" aria-hidden="true"></i></a></div>
+    </div>
+
+    <div id="ruta40" class="col-md-5 recorrido centrar-recorrido">
+        <div class="recuadro"><a href="#">Ruta 40 <i class="fa fa-download" aria-hidden="true"></i></a></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(window).ready(function () {
+        //cuando se carga la pagina
+        if ($(window).width() <= 480) {
+            $("#colectivos").attr("class", "row colectivos");
+            $("#ruta24").attr("class", "col-md-5 recorrido");
+            $("#ruta40").attr("class", "col-md-5 recorrido");
+
+            $("#ruta24,#ruta40").css({
+                "paddingTop": "35%",
+                "height": "300px",
+                "width": "350px",
+                "paddingLeft": "10%",
+                "paddingRight": "10%"
+            });
+
+        } else {
+            $("#colectivos").attr("class", "row colectivos colectivos-centrar");
+            $("#ruta24").attr("class", "col-md-5 recorrido centrar-recorrido");
+            $("#ruta40").attr("class", "col-md-5 recorrido centrar-recorrido");
+        }
+
+        //cuadno se cambia el tamaño
+
+        $(window).resize(function () {
+            if ($(window).width() <= 480) {
+                $("#colectivos").attr("class", "row colectivos");
+                $("#ruta24").attr("class", "col-md-5 recorrido");
+                $("#ruta40").attr("class", "col-md-5 recorrido");
+
+                $("#ruta24,#ruta40").css({
+                    "paddingTop": "35%",
+                    "height": "300px",
+                    "width": "350px",
+                    "paddingLeft": "10%",
+                    "paddingRight": "10%"
+                });
+            } else {
+                $("#colectivos").attr("class", "row colectivos colectivos-centrar");
+                $("#ruta24").attr("class", "col-md-5 recorrido centrar-recorrido");
+                $("#ruta40").attr("class", "col-md-5 recorrido centrar-recorrido");
+
+                $("#ruta24,#ruta40").css({
+                    "paddingTop": "0",
+                    "height": "400px",
+                    "width": "400px"
+                });
+            }
+        });
+
+
+
+        ////
+
+    });
+</script>

@@ -1,0 +1,30 @@
+<div class="row">
+    <div style="margin-left: 50px;margin-right: 50px;">
+        <a class="btn btn-info" style="text-align: right;" href="<?php echo $this->url(array('controller'=>'videos','action'=>'nuevo')); ?>">Nuevo video</a>
+
+
+        <?php
+        $v = new My\Entity\Videos();
+        foreach ($this->videos as $v):
+            ?>
+
+        <div class="media" style="background-color: #999;padding: 10px;border-radius: 5px;margin: 5px;">
+                <div class="media-body">
+                    <h4 class="media-heading" style="color: white"><?php echo $v->getTitulo(); ?></h4>
+                    <a href="<?php echo 'https://www.youtube.com/watch?v=' . $v->getIdyoutube(); ?>" target="_blank">
+                        <img class="media-object img-thumbnail" style="height: 100px; width: 100px; float: left;" src="<?php echo 'https://i.ytimg.com/vi/' . $v->getIdyoutube() . '/hqdefault.jpg'; ?>">
+                    </a>
+                    <div style="padding: 25px;padding-left: 120px;">
+                        <a class="btn btn-primary" href="<?php echo $this->url(array('controller'=>'videos','action'=>'editar','id'=>$v->getId())); ?>">Editar</a>
+                    </div>
+                </div>
+            </div>
+
+            <?php
+        endforeach;
+        ?>
+
+
+
+    </div>
+</div>

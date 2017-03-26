@@ -1,0 +1,23 @@
+<div class="row">
+    <center>
+        <?php
+        if ($this->noticia->getImagennota() != NULL) {
+            ?>
+            <img src="<?php echo $this->baseUrl() . '/img/noticias/' . $this->noticia->getImagennota(); ?>" class="img-responsive img-thumbnail">
+            <?php
+        } else {
+            ?>
+            <img src="<?php echo $this->baseUrl() . '/img/noticias/img_thumnails.jpg'; ?>" class="img-responsive img-thumbnail">
+            <p>Sin imagen</p>
+            <?php
+        }
+        ?>
+    </center>
+    <div class="col-md-12">
+        <center>
+            <?php
+            echo $this->form;
+            ?>
+        </center>
+    </div>
+</div>

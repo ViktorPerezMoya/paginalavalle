@@ -1,0 +1,54 @@
+<?php
+$licns = $this->licns;
+?>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+
+<div class="contenedor-licitaciones">
+    <div class="jumbotron"><center><h1>Licitaciones</h1></center></div>
+    <div class="row">
+        <table class="table table-hover table-striped" id="example" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                    <th>Tipo del llamado</th>
+                    <th>Certificado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $l = new My\Entity\Licitacion();
+                foreach ($licns as $l):
+                    ?>
+                    <tr>
+                        <td><?php echo $l->getTipoDeContratacion(); ?></td>
+                        <td><?php echo $l->getFechaDeApertura(); ?></td>
+                        <td><?php echo $l->getHoraDeApertura(); ?></td>
+                        <td><?php
+                            if($l->getActiva()) {
+                                echo 'VIGENTE';
+                            }else{
+                                echo 'CADUCA';
+                            }
+                            ?></td>
+                        <td><?php echo $l->getDescripcion(); ?></td>
+                        <!--<td><a><i class="fa fa-download fa-2x" aria-hidden="true"> </i> Descargar</a></td>-->
+                        <td><a id="verPdf" name="<?php echo $l->getId()?>" href="<?php echo $this->url(array('controller'=>'tramites-web','action'=>'licitacion-pdf','id'=>$l->getId())); ?>" class="btn btn-success"><i class="fa fa-download fa-2x" aria-hidden="true"> </i></a></td>
+                    </tr>
+                    <?php
+                endforeach;
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

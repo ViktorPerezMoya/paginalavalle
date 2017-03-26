@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <?php echo $this->headTitle(); ?>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <?php
+        echo $this->headLink()
+                ->prependStylesheet($this->baseUrl() . '/css/font-awesome.min.css')
+                ->prependStylesheet($this->baseUrl() . '/css/cerulean.css')
+                ->prependStylesheet($this->baseUrl() . '/css/estilosadmin.css')
+                ->prependStylesheet($this->baseUrl() . '/css/galeria_vendimia/blueimp-gallery.css')
+                ->prependStylesheet($this->baseUrl() . '/css/videos/videos.css')
+                ->prependStylesheet($this->baseUrl() . '/css/fontello.css');
+        ?>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')); ?>">Municipalidad de Lavalle</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index')); ?>">Inicio <span class="sr-only">(current)</span></a></li>
+                            <li><a href="<?php echo $this->url(array('controller' => 'noticia', 'action' => 'index')) ?>">Noticias</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Vendimia <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="<?php echo $this->url(array('controller' => 'vendimia', 'action' => 'candidatas')); ?>">Candidatas</a></li>
+                                    <li><a href="<?php echo $this->url(array('controller' => 'vendimia', 'action' => 'nueva-candidata')); ?>">Nueva Candidata</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="<?php echo $this->url(array('controller' => 'vendimia', 'action' => 'reina')); ?>">Seleccionar Reina</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="<?php echo $this->url(array('controller' => 'vendimia', 'action' => 'galeria')); ?>">Galeria</a></li>
+                                    <li><a href="<?php echo $this->url(array('controller' => 'vendimia', 'action' => 'nueva-imagen')); ?>">Nueva Imagen</a></li>
+                                </ul>
+                            </li><li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Servicios <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Colectivos</a></li>
+                                    <li><a href="#">Teléfonos</a></li>
+                                    <li><a href="#">Educación</a></li>
+                                    <li><a href="#">Jardines</a></li>
+                                    <li><a href="#">Delegaciones</a></li>
+                                    <li><a href="#">CDR</a></li>
+                                    <li><a href="#">Biblioteca Pública</a></li>
+                                    <li><a href="#">Familia</a></li>
+                                    <li><a href="#">Tramites</a></li>
+                                    <li><a href="#">Vivienda</a></li>
+                                    <li><a href="#">C.I.C.</a></li>
+                                    <li><a href="#">Cultura</a></li>
+                                    <li><a href="#">Desarrollo Humano</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Secciones <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="<?php echo $this->url(array('controller' => 'acuerdo', 'action' => 'index')); ?>">Acuerdo 3949</a></li>
+                                    <li><a href="<?php echo $this->url(array('controller' => 'departamento', 'action' => 'index')); ?>">Departamento</a></li>
+                                    <li><a href="#">Gobierno</a></li>
+                                    <li><a href="#">Turismo</a></li>
+                                    <li><a href="<?php echo $this->url(array('controller' => 'tramites', 'action' => 'index')); ?>">Tramites Web</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Otos <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="<?php echo $this->url(array('controller' => 'videos', 'action' => 'index')); ?>">Videos</a></li>
+                                    <li><a href="#">Afiches</a></li>
+                                    <li><a href="#">Colectivos</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">Link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <?php echo $this->layout()->content; ?>
+
+        </main>
+        <?php
+        echo $this->headScript()
+                //->appendFile($this->baseUrl() . '/js/jquery-1.11.3.js')
+                ->appendFile($this->baseUrl() . '/js/bootstrap.min.js')
+                ->appendFile($this->baseUrl() . '/js/galeria_vendimia/blueimp-helper.js')
+                ->appendFile($this->baseUrl() . '/js/galeria_vendimia/blueimp-gallery.js')
+                ->appendFile($this->baseUrl() . '/js/galeria_vendimia/jquery.blueimp-gallery.js')
+                ->appendFile($this->baseUrl() . '/js/jquery-1.11.3.js');
+        ?>
+
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+    </body>
+</html>

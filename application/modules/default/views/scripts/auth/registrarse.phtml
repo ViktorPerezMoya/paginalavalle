@@ -1,0 +1,95 @@
+<div class="contenedor" id="contenedor">
+
+    <center>
+        <div class="jumbotron" style="border-radius: 5px;margin-top: 20px;">
+            <h1>Registrate</h1>
+        </div>
+    </center>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div id="formulario" style="margin-top: 50px;">
+                <?php
+                echo $this->form;
+                ?>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="mensajes-error" class="alert alert-danger" role="alert"></div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("input").css({"marginBottom": "5px"})
+        $("#mensajes-error").hide();
+        var error_nombre = "";
+        var error_cuil = "";
+        var error_email = "";
+        var error_usuario = "";
+        var error_clave = "";
+        var error_clave2 = "";
+
+        $("#nombre").focusout(function () {
+            if ($("#nombre").val() == "") {
+                error_nombre = "<ul style='padding-left: 10px;'><li>El nombre no puede ser vacio</li></ul>";
+                mostrarErrores();
+            }
+        });
+
+        $("#cuil").focusout(function () {
+            if ($("#cuil").val() == "") {
+                error_cuil = "<ul style='padding-left: 10px;'><li>El cuil no puede ser vacio</li></ul>";
+                mostrarErrores();
+            }
+        });
+
+        $('#cuil').keyup(function () {
+            this.value = (this.value + '').replace(/[^0-9]/g, '');
+        });
+
+        $("#email").focusout(function () {
+            if ($("#email").val() == "") {
+                error_email = "<ul style='padding-left: 10px;'><li>El email no puede ser vacio</li></ul>";
+                mostrarErrores();
+            }
+        });
+
+        $("#usuario").focusout(function () {
+            if ($("#usuario").val() == "") {
+                error_usuario = "<ul style='padding-left: 10px;'><li>El usuario no puede ser vacio</li></ul>";
+                mostrarErrores();
+            }
+        });
+
+        $("#clave").focusout(function () {
+            if ($("#clave").val() == "") {
+                error_clave = "<ul style='padding-left: 10px;'><li>La clave no puede ser vacia</li></ul>";
+                mostrarErrores();
+            }
+        });
+
+
+        $("#repetirclave").focusout(function () {
+            var clave = $("#clave").val();
+            if (clave != $("#repetirclave").val()) {
+                error_clave2 = "<ul style='padding-left: 10px;'><li>La clave no es igual</li></ul>";
+                mostrarErrores();
+            }
+
+        });
+
+        function mostrarErrores() {
+            if (error_clave != "" || error_clave2 != "" || error_cuil != "" || error_email != "" || error_nombre != "" || error_usuario != "") {
+                $("#mensajes-error").html(error_clave + error_clave2 + error_cuil + error_email + error_nombre + error_usuario);
+                $("#mensajes-error").show();
+            }
+        }
+
+    });
+
+
+</script>

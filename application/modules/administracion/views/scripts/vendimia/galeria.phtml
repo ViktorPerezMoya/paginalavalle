@@ -1,0 +1,59 @@
+
+<?php
+$imagenes = $this->imagenes;
+?>
+
+<div class="jumbotron">
+    <center><h1>Imagenes de galeria vendimia</h1></center>
+</div>
+
+<div class="col-md-1"></div>
+<div class="col-md-10">
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Url</th>
+                <th>Imagen</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            foreach ($imagenes as $i):
+                ?>
+                <tr id="fila-<?php echo $i->getId(); ?>">
+                    <td><?php echo $i->getTitulo(); ?></td>
+                    <td><?php echo $i->getUrl(); ?> </td>
+                    <td>
+                        <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/<?php echo $i->getUrl(); ?>" style="height: 80px"/>
+                    </td>
+                    <td><button class="btn btn-danger btn-sm" id="eliminar-<?php echo $i->getId(); ?>" onclick="eliminar_imagen(<?php echo $i->getId(); ?>)">Eliminar</button></td>
+                </tr>
+                <?php
+            endforeach;
+            ?>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    function eliminar_imagen(id) {
+
+        var request = $.ajax({
+            url: "http://localhost/paginamuni/public/administracion/vendimia/eliminar-imagen",
+            method: "POST",
+            data: {idimagen: id},
+            dataType: "html"
+        });
+
+        request.done(function (msg) {
+            alert(msg);
+            $("#fila-" + id).remove();
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+    }
+</script>

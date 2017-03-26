@@ -1,0 +1,77 @@
+<?php
+$archs = $this->acuerdos;
+?>
+
+<div class="jumbotron">
+    <center>
+        <h1>Acuerdo 3949</h1>
+    </center>
+</div>
+
+<div class="row" style="padding: 50px 100px">
+    <a class="btn btn-info" href="<?php echo $this->url(array('controller'=>'acuerdo','action'=>'nuevo-registro'));?>" style="float: right">Agregar archivo</a>
+
+    <table class="table table-hover table-striped" id="tbacuerdo">
+    <thead>
+        <tr>
+            <th>Ejercicio</th>
+            <th>Periodo</th>
+            <th>Descripcion</th>
+            <th>Url</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $a = new My\Entity\Acuerdo();
+        foreach ($archs as $a):
+            if ($a->isMostrar()):
+                ?>
+                <tr id="<?php echo 'acuerdo-' . $a->getId(); ?>">
+                    <td><?php echo $a->getEjercicio(); ?></td>
+                    <td><?php echo $a->getPeriodo(); ?></td>
+                    <td><?php echo $a->getDescripcion(); ?></td>
+                    <td>
+                        <a href="<?php echo $this->baseUrl(); ?>/pdf/acuerdo3949/<?php echo $a->getUrl(); ?>" target="_blank" onclick="window.open(this.href, this.target, width=700,height=600&quot;);return false;" role="button" data-toggle="modal">
+                        <?php echo $a->getUrl(); ?></a>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="<?php echo $this->url(array('controller' => 'acuerdo', 'action' => 'editar-registro', 'id' => $a->getId())) ?>">Editar</a>
+                        <button class="btn btn-danger btn-sm" id="<?php echo 'boton-' . $a->getId(); ?>" onclick="eliminar(<?php echo $a->getId(); ?>)">Eliminar</button>
+                    </td>
+                </tr>
+
+                <?php
+            endif;
+        endforeach;
+        ?>
+    </tbody>
+</table>
+
+</div>
+<script type="text/javascript">
+    
+    $(document).ready(function () {
+        $('#tbacuerdo').DataTable();
+    });
+    
+    function eliminar(id) {
+        var request = $.ajax({
+            url: "http://localhost/paginamuni/public/administracion/acuerdo/eliminar-registro",
+            method: "POST",
+            data: {id: id},
+            dataType: "html"
+        });
+
+        request.done(function (msg) {
+            alert(msg);
+            $("#acuerdo-" + id).remove();
+        });
+
+        request.fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+    }
+
+
+</script>
