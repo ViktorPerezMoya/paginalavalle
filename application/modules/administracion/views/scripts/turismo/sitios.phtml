@@ -1,0 +1,44 @@
+<div class="jumbotron">
+    <center><h2>Sitios, Alojamientos y Gastronomia</h2></center>
+</div>
+<a class="btn btn-primary" href="<?php echo $this->url(array('controller'=>'turismo','action'=>'nuevo-sitio')); ?>">Agregar sitio</a>
+<div class="contenido">
+    <table class="table table-hover table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Contenido</th>
+                <th>Imagenes</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $sitios = $this->sitios;
+            $s = new My\Entity\Sitios();
+            foreach ($sitios as $s):
+                ?>
+            <tr>
+            <td><?php echo $s->getTitulo(); ?></td>
+            <td><?php echo $s->getTipo(); ?></td>
+            <td>
+                <?php
+                $imagenes = "";
+                foreach ($s->getImagenes() as $i) {
+                    $imagenes .= $i->getUrl().",";
+                }
+                echo $imagenes;
+                ?>
+            </td>
+            <td><a class="btn btn-success btn-sm" href="<?php echo $this->url(array('controller'=>'turismo','action'=>'editar-sitio','id'=>$s->getId()));?>">Editar</a>
+                <a class="btn btn-warning btn-sm" href="<?php echo $this->url(array('controller'=>'turismo','action'=>'agregar-imagen-sitio','id'=>$s->getId()));?>">Agregar Imagen</a>
+                <a class="btn btn-danger btn-sm" href="<?php echo $this->url(array('controller'=>'turismo','action'=>'eliminar-sitio','id'=>$s->getId()));?>">Eliminar</a>
+                
+            </td>
+            <tr>
+            <?php
+        endforeach;
+        ?>
+        </tbody>
+    </table>
+</div>

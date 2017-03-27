@@ -1,121 +1,116 @@
 <div class="contenedor contenido-alojamiento">
-    <div class="row">
-        <div class="col-md-3">
-            <button type="button" id="btn-puesto-dias" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Puesto Díaz</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" id="btn-chalet-yet" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Chalet del Yet</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" id="btn-cabanas-ozcaina" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Cabañas Ozcayna</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" id="btn-finca-marinata" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Finca Mariñata</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <button type="button" id="btn-tres-efes" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Las 3F</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" id="btn-marujitas" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Las Marujitas</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" id="btn-kalen" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Kalen</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" id="btn-musico" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Casa del Músico</button>
-        </div>
 
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <button type="button" id="btn-esperanza" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Cabañas la Esperanza</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" id="btn-don-nicola" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Don Nicola</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" id="btn-mis-viejos" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-bed fa-2x" aria-hidden="true"> </i> La casa de mis viejos</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" id="btn-hotel-lavalle" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                <i class="fa fa-bed fa-2x" aria-hidden="true"> </i> Hotel Lavalle</button>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    </ol>
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox" id="imagenes-alojamiento">
-                        <div class="item active">
-                            <center><img src="http://lavallemendoza.gob.ar/img/botonerass/_DSC9394.jpg"></center>
-                        </div>
-                        <div class="item">
-                            <center><img src="http://lavallemendoza.gob.ar/img/botonerass/_DSC9383.jpg"></center>
-                        </div>
-                    </div>
-
+    <?php
+    $alojamientos = $this->alojamiento;
+    $s = new My\Entity\Sitios();
+    $cont = 0;
+    foreach ($alojamientos as $s):
+        if ($cont % 4 == 0) {
+            ?>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" id="btn-<?php echo $s->getId(); ?>" class="btn btn-primary" data-toggle="modal" data-target="#modal-<?php echo $s->getId(); ?>"><i class="fa fa-bed fa-2x" aria-hidden="true"> </i> <?php echo $s->getTitulo(); ?></button>
                 </div>
-                <div class="datos-alojamiento" id="datos-alojamiento">
-                    <ul>
-                        <li>Ubicación: CALLE JUSTO EMILIO PIZARRO S/N COLONIA ITALIA.</li>
-                        <li>Teléfonos: 0261- 155253308/ 155684171- 4941182</li>
-                    </ul>
-
+                <?php
+            } else if (($cont + 1) % 4 == 0) {
+                ?>
+                <div class="col-md-3">
+                    <button type="button" id="btn-<?php echo $s->getId(); ?>" class="btn btn-primary" data-toggle="modal" data-target="#modal-<?php echo $s->getId(); ?>"><i class="fa fa-bed fa-2x" aria-hidden="true"> </i> <?php echo $s->getTitulo(); ?></button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <?php
+        } else {
+            ?>
+            <div class="col-md-3">
+                <button type="button" id="btn-<?php echo $s->getId(); ?>" class="btn btn-primary" data-toggle="modal" data-target="#modal-<?php echo $s->getId(); ?>"><i class="fa fa-bed fa-2x" aria-hidden="true"> </i> <?php echo $s->getTitulo(); ?></button>
+            </div>
+            <?php
+            if($s === end($alojamientos)){
+                echo '</div>';
+            }
+        }
+        $cont++;
+    endforeach;
+    ?>
+
+    
+</div>
+
+
+<?php
+foreach ($alojamientos as $s):
+    ?>
+<div class="modal fade" id="modal-<?php echo $s->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><?php echo $s->getTitulo(); ?></h4>
+                </div>
+                <div class="modal-body">
+                    <?php
+                    $imagenes = $s->getImagenes();
+                    $i = new My\Entity\Imagen();
+
+                    if (sizeof($imagenes) > 1) {
+                        ?>
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+
+                                <?php
+                                $cont = 0;
+                                foreach ($imagenes as $i) {
+
+                                    if ($cont == 0) {
+                                        ?>
+                                        <div class="item active">
+                                            <center><img src="<?php echo $this->baseUrl() . '/img/turismo/sitios/' . $i->getUrl(); ?>" alt="" class="imagenes-carousel"></center>
+                                        </div>
+                                        <?php
+                                        $cont++;
+                                    } else {
+                                        ?>
+                                        <div class="item">
+                                            <center><img src="<?php echo $this->baseUrl() . '/img/turismo/sitios/' . $i->getUrl(); ?>" alt="" class="imagenes-carousel"></center>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
+
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                        <?php
+                    } else if (sizeof($imagenes) == 1) {
+                        //ingresara solo una vez
+                        foreach ($imagenes as $i) {
+                            ?>
+                            <center><img src="<?php echo $this->baseUrl() . '/img/turismo/sitios/' . $i->getUrl(); ?>"></center>
+                            <?php
+                        }
+                    }
+                    ?>
+
+                    <br>
+                    <div style="margin-left: 20px;"><?php echo $s->getContenido(); ?></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        $("#btn-puesto-dias").click(function () {
-            alert("clicaste!!!");
-            $("#datos-alojamiento").html('<ul style="list-style: none;">' +
-                    '<li><strong style="line-height:1.6em">Ubicación:</strong><span style="line-height:1.6em">&nbsp;CALLE JUSTO EMILIO PIZARRO S/N COLONIA ITALIA.</span></li>' +
-                    '<li><strong>Teléfonos:</strong>&nbsp;0261- 155253308/ 155684171- 4941182</li>' +
-                    '</ul>');
-
-
-
-            $("#imagenes-alojamiento").html('<div class="item active">' +
-                    '<center><img src="http://localhost/img/alojamiento/puesto_dias1.jpg"></center>' +
-                    '</div>' +
-                    '<div class="item">' +
-                    '<center><img src="http://localhost/img/alojamiento/puesto_dias2.jpg"></center>''+
-                    '</div>');
-                    
-                    $("#myModalLabel").text("Puesto Diaz")
-        });
-
-
-
-    });
-</script>
+    <?php
+endforeach;
+?>

@@ -35,6 +35,11 @@ class Imagen {
      * @JoinColumn(name="seccion_id", referencedColumnName="id")
      */
     private $seccion_id;
+    /**
+     * @ManyToOne(targetEntity="Sitios", inversedBy="imagen", cascade={"persist"}, fetch="EAGER")
+     * @JoinColumn(name="sitios_id", referencedColumnName="id")
+     */
+    private $sitios_id;
     
     
     public function __construct()
@@ -70,6 +75,22 @@ class Imagen {
 
     function setCandidata_id($candidata_id) {
         $this->candidata_id = $candidata_id;
+    }
+
+    function getSeccion_id() {
+        return $this->seccion_id;
+    }
+
+    function getSitios_id() {
+        return $this->sitios_id;
+    }
+
+    function setSeccion_id($seccion_id) {
+        $this->seccion_id = $seccion_id;
+    }
+
+    function setSitios_id($sitios_id) {
+        $this->sitios_id = $sitios_id;
     }
 
 

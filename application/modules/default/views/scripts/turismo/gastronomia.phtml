@@ -1,89 +1,117 @@
 <div class="contenedor contenido-gastronomia">
-    <div class="row">
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> Puesto Díaz</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> Puesto el Águila</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> Puesto Los Hermanos Gonzáles</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> Las 3F</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> Las Marujitas Changlot</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> Puesto El Algarrobo</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> "BET - EL" portal de Mendoza</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> El Baquiano</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> Sadiki</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> Tango Resto Bar</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> Panadería y cafetería Marisa</button>
-        </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> Donde Era La Villa</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> La Gringa Resto Bar</button>
-        </div>
-    </div>
-</div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    </ol>
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <center><img src="http://lavallemendoza.gob.ar/img/botonerass/Puesto%20El%20Algarrobo...jpg"></center>
-                        </div>
-                        <div class="item">
-                            <center><img src="http://lavallemendoza.gob.ar/img/botonerass/El%20algarrobo.jpg"></center>
-                        </div>
-                    </div>
-
+    <?php
+    $alojamientosgastronomicos = $this->gastronomia;
+    $s = new My\Entity\Sitios();
+    $cont = 0;
+    foreach ($alojamientosgastronomicos as $s):
+        if ($cont % 4 == 0) {
+            ?>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" id="btn-<?php echo $s->getId(); ?>" class="btn btn-warning" data-toggle="modal" data-target="#modal-<?php echo $s->getId(); ?>"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> <?php echo $s->getTitulo(); ?></button>
                 </div>
-                <div class="datos-alojamiento">
-                    <ul>
-                        <li>Ubicación: Pueblo de La Asunción</li>
-                        <li>Teléfono: 0261-155727044</li>
-                    </ul>
-
+                <?php
+            } else if (($cont + 1) % 4 == 0) {
+                ?>
+                <div class="col-md-3">
+                    <button type="button" id="btn-<?php echo $s->getId(); ?>" class="btn btn-warning" data-toggle="modal" data-target="#modal-<?php echo $s->getId(); ?>"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> <?php echo $s->getTitulo(); ?></button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <?php
+        } else {
+            ?>
+            <div class="col-md-3">
+                <button type="button" id="btn-<?php echo $s->getId(); ?>" class="btn btn-warning" data-toggle="modal" data-target="#modal-<?php echo $s->getId(); ?>"><i class="fa fa-cutlery fa-2x" aria-hidden="true"> </i> <?php echo $s->getTitulo(); ?></button>
+            </div>
+            <?php
+            if ($s === end($alojamientosgastronomicos)) {
+                echo '</div>';
+            }
+        }
+        $cont++;
+    endforeach;
+    ?>
+
+
+
+</div>
+
+
+<?php
+foreach ($alojamientosgastronomicos as $s):
+    ?>
+    <div class="modal fade" id="modal-<?php echo $s->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><?php echo $s->getTitulo(); ?></h4>
+                </div>
+                <div class="modal-body">
+                    <?php
+                    $imagenes = $s->getImagenes();
+                    $i = new My\Entity\Imagen();
+
+                    if (sizeof($imagenes) > 1) {
+                        ?>
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+
+                                <?php
+                                $cont = 0;
+                                foreach ($imagenes as $i) {
+
+                                    if ($cont == 0) {
+                                        ?>
+                                        <div class="item active">
+                                            <center><img src="<?php echo $this->baseUrl() . '/img/turismo/sitios/' . $i->getUrl(); ?>" alt="" class="imagenes-carousel"></center>
+                                        </div>
+                                        <?php
+                                        $cont++;
+                                    } else {
+                                        ?>
+                                        <div class="item">
+                                            <center><img src="<?php echo $this->baseUrl() . '/img/turismo/sitios/' . $i->getUrl(); ?>" alt="" class="imagenes-carousel"></center>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
+
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                        <?php
+                    } else if (sizeof($imagenes) == 1) {
+                        //ingresara solo una vez
+                        foreach ($imagenes as $i) {
+                            ?>
+                            <center><img src="<?php echo $this->baseUrl() . '/img/turismo/sitios/' . $i->getUrl(); ?>"></center>
+                            <?php
+                        }
+                    }
+                    ?>
+
+                    <br>
+                    <div style="margin-left: 20px;"><?php echo $s->getContenido(); ?></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <?php
+endforeach;
+?>

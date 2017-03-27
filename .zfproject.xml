@@ -293,6 +293,14 @@
             <controllerFile controllerName="Acuerdo">
               <actionMethod actionName="index"/>
             </controllerFile>
+            <controllerFile controllerName="Turismo">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="sitios"/>
+              <actionMethod actionName="nuevoSitio"/>
+              <actionMethod actionName="editardSitio"/>
+              <actionMethod actionName="eliminardSitio"/>
+              <actionMethod actionName="agregarImagenSitio"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory>
             <formFile formName="NoticiaForm"/>
@@ -308,6 +316,8 @@
             <formFile formName="DistritoForm"/>
             <formFile formName="TramiteForm"/>
             <formFile formName="AcuerdoForm"/>
+            <formFile formName="SitioForm"/>
+            <formFile formName="ImagenSitioForm"/>
           </formsDirectory>
           <layoutsDirectory enabled="false">
             <layoutScriptsDirectory enabled="false"/>
@@ -359,6 +369,24 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="acuerdo">
                 <viewScriptFile forActionName="editarRegistro"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Turismo">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Turismo">
+                <viewScriptFile forActionName="sitios"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Turismo">
+                <viewScriptFile forActionName="nuevoSitio"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Turismo">
+                <viewScriptFile forActionName="editardSitio"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Turismo">
+                <viewScriptFile forActionName="eliminardSitio"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Turismo">
+                <viewScriptFile forActionName="agregarImagenSitio"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

@@ -31,17 +31,29 @@ class Default_TurismoController extends Zend_Controller_Action
 
     public function sitiosAction()
     {
-        // action body
+        $query = $this->_em->createQuery("SELECT s FROM My\Entity\Sitios s WHERE s.tipo = ?1");
+        $query->setParameter(1, "sitios");
+        
+        $sitios = $query->getResult();
+        $this->view->sitios = $sitios;
     }
 
     public function alojamientoAction()
     {
-        // action body
+        $query = $this->_em->createQuery("SELECT s FROM My\Entity\Sitios s WHERE s.tipo = ?1");
+        $query->setParameter(1, "alojamiento");
+        
+        $sitios = $query->getResult();
+        $this->view->alojamiento = $sitios;
     }
 
     public function gastronomiaAction()
     {
-        // action body
+        $query = $this->_em->createQuery("SELECT s FROM My\Entity\Sitios s WHERE s.tipo = ?1");
+        $query->setParameter(1, "gastronomia");
+        
+        $sitios = $query->getResult();
+        $this->view->gastronomia = $sitios;
     }
 
     public function contactoInformesAction()
