@@ -3,7 +3,7 @@
 </div>
 <a class="btn btn-primary" href="<?php echo $this->url(array('controller'=>'turismo','action'=>'nuevo-sitio')); ?>">Agregar sitio</a>
 <div class="contenido">
-    <table class="table table-hover table-striped table-responsive">
+    <table class="table table-hover table-striped table-responsive" id="example" cellspacing="0">
         <thead>
             <tr>
                 <th>Titulo</th>
@@ -25,12 +25,13 @@
                 <?php
                 $imagenes = "";
                 foreach ($s->getImagenes() as $i) {
-                    $imagenes .= $i->getUrl().",";
+                    $imagenes .= $i->getUrl().",<br>";
                 }
                 echo $imagenes;
                 ?>
             </td>
-            <td><a class="btn btn-success btn-sm" href="<?php echo $this->url(array('controller'=>'turismo','action'=>'editar-sitio','id'=>$s->getId()));?>">Editar</a>
+            <td>
+                <a class="btn btn-success btn-sm" href="<?php echo $this->url(array('controller'=>'turismo','action'=>'editar-sitio','id'=>$s->getId()));?>">Editar</a>
                 <a class="btn btn-warning btn-sm" href="<?php echo $this->url(array('controller'=>'turismo','action'=>'agregar-imagen-sitio','id'=>$s->getId()));?>">Agregar Imagen</a>
                 <a class="btn btn-danger btn-sm" href="<?php echo $this->url(array('controller'=>'turismo','action'=>'eliminar-sitio','id'=>$s->getId()));?>">Eliminar</a>
                 
@@ -42,3 +43,9 @@
         </tbody>
     </table>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

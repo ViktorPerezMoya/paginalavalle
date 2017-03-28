@@ -301,6 +301,12 @@
               <actionMethod actionName="eliminardSitio"/>
               <actionMethod actionName="agregarImagenSitio"/>
             </controllerFile>
+            <controllerFile controllerName="Gobierno">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="areasMunicipales"/>
+              <actionMethod actionName="nuevaArea"/>
+              <actionMethod actionName="editarArea"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory>
             <formFile formName="NoticiaForm"/>
@@ -318,6 +324,7 @@
             <formFile formName="AcuerdoForm"/>
             <formFile formName="SitioForm"/>
             <formFile formName="ImagenSitioForm"/>
+            <formFile formName="AreaMunicipalForm"/>
           </formsDirectory>
           <layoutsDirectory enabled="false">
             <layoutScriptsDirectory enabled="false"/>
@@ -387,6 +394,18 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Turismo">
                 <viewScriptFile forActionName="agregarImagenSitio"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Gobierno">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Gobierno">
+                <viewScriptFile forActionName="areasMunicipales"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Gobierno">
+                <viewScriptFile forActionName="nuevaArea"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Gobierno">
+                <viewScriptFile forActionName="editarArea"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

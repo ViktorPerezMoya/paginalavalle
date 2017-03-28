@@ -25,7 +25,7 @@
                 <button type="button" id="btn-<?php echo $s->getId(); ?>" class="btn btn-primary" data-toggle="modal" data-target="#modal-<?php echo $s->getId(); ?>"><i class="fa fa-bed fa-2x" aria-hidden="true"> </i> <?php echo $s->getTitulo(); ?></button>
             </div>
             <?php
-            if($s === end($alojamientos)){
+            if ($s === end($alojamientos)) {
                 echo '</div>';
             }
         }
@@ -33,14 +33,14 @@
     endforeach;
     ?>
 
-    
+
 </div>
 
 
 <?php
 foreach ($alojamientos as $s):
     ?>
-<div class="modal fade" id="modal-<?php echo $s->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="modal-<?php echo $s->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -54,7 +54,21 @@ foreach ($alojamientos as $s):
 
                     if (sizeof($imagenes) > 1) {
                         ?>
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <div id="carousel-<?php echo $s->getId(); ?>" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <?php
+                                $cont = 0;
+                                foreach ($imagenes as $i) {
+                                    if($cont == 0){
+                                        ?><li data-target="#carousel-<?php echo $s->getId(); ?>" data-slide-to="0" class="active"></li><?php
+                                    }else{
+                                        ?><li data-target="#carousel-<?php echo $s->getId(); ?>" data-slide-to="<?php echo $cont; ?>"></li><?php
+                                    }
+                                    $cont++;
+                                }
+                                ?>
+                            </ol>
 
 
                             <!-- Wrapper for slides -->
@@ -82,14 +96,6 @@ foreach ($alojamientos as $s):
                                 ?>
 
                             </div>
-
-                            <!-- Controls -->
-                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                            </a>
                         </div>
                         <?php
                     } else if (sizeof($imagenes) == 1) {
