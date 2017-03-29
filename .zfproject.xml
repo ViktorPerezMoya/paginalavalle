@@ -325,6 +325,7 @@
             <formFile formName="SitioForm"/>
             <formFile formName="ImagenSitioForm"/>
             <formFile formName="AreaMunicipalForm"/>
+            <formFile formName="DocumentoConsejolForm"/>
           </formsDirectory>
           <layoutsDirectory enabled="false">
             <layoutScriptsDirectory enabled="false"/>
@@ -406,6 +407,18 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Gobierno">
                 <viewScriptFile forActionName="editarArea"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="gobierno">
+                <viewScriptFile forActionName="archivosConsejo"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="gobierno">
+                <viewScriptFile forActionName="nuevoArchivoConsejo"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="gobierno">
+                <viewScriptFile forActionName="editarArchivoConsejo"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="gobierno">
+                <viewScriptFile forActionName="borrarDocumentoConsejo"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

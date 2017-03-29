@@ -42,7 +42,7 @@ class Default_GobiernoController extends Zend_Controller_Action
 
     public function areasMunicipalesAction()
     {   
-        $query = $this->_em->createQuery("SELECT a FROM My\Entity\AreaMunicipal a WHERE a.activo = ?1");
+        $query = $this->_em->createQuery("SELECT a FROM My\Entity\AreaMunicipal a WHERE a.activo = ?1 AND a.vista = 'areas'");
         $query->setParameter(1, true);
         $areas = $query->getResult();
         $this->view->areas = $areas;
