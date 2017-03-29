@@ -32,7 +32,7 @@ class Administracion_GobiernoController extends Zend_Controller_Action
 
     public function areasMunicipalesAction()
     {
-        $query = $this->_em->createQuery("SELECT a FROM My\Entity\AreaMunicipal a WHERE a.activo = ?1");
+        $query = $this->_em->createQuery("SELECT a FROM My\Entity\AreaMunicipal a WHERE a.activo = ?1 AND a.vista = 'areas'");
         $query->setParameter(1, true);
         $areas = $query->getResult();
         $this->view->areas = $areas;
@@ -56,6 +56,7 @@ class Administracion_GobiernoController extends Zend_Controller_Action
                     $area->setTelefono($form->telefono->getValue());
                     $area->setFunciones($form->funciones->getValue());
                     $area->setActivo(true);
+                    $area->setVista("areas");
                     
                     $this->_em->merge($area);
                     $this->_em->flush();
@@ -74,7 +75,257 @@ class Administracion_GobiernoController extends Zend_Controller_Action
 
     public function editarAreaAction()
     {
-        // action body
+        $id = $this->getParam('id');
+        $area = $this->_em->find('My\Entity\AreaMunicipal',$id);
+        $form  = new Administracion_Form_AreaMunicipalForm();
+        $form->titulo->setValue($area->getTitulo());
+        $form->acargode->setValue($area->getAcargode());
+        $form->cargoanterior->setValue($area->getCargoanterior());
+        $form->direccion->setValue($area->getDireccion());
+        $form->telefono->setValue($area->getTelefono());
+        $form->funciones->setValue($area->getFunciones());
+
+        $this->view->form = $form;
+        
+        if($this->getRequest()->isPost()){
+            $data = $this->getRequest()->getPost();
+            if($form->isValid($data)){
+                $this->_em->getConnection()->beginTransaction();
+                try {
+                    //$area = new My\Entity\AreaMunicipal();
+                    $area->setTitulo($form->titulo->getValue());
+                    $area->setAcargode($form->acargode->getValue());
+                    $area->setCargoanterior($form->cargoanterior->getValue());
+                    $area->setDireccion($form->direccion->getValue());
+                    $area->setTelefono($form->telefono->getValue());
+                    $area->setFunciones($form->funciones->getValue());
+                    $area->setActivo(true);
+                    
+                    $this->_em->merge($area);
+                    $this->_em->flush();
+                    $this->_em->getConnection()->commit();
+
+                    $this->_helper->redirector('areas-municipales');
+                } catch (Exception $ex) {
+                    $this->_em->getConnection()->rollback();
+                    $this->_em->close();
+                    var_dump($ex);
+                    die();
+                }
+            }
+        }
+    }
+
+    public function borrarAreaAction(){
+
+        $id = $this->getParam('id');
+        $area = $this->_em->find('My\Entity\AreaMunicipal', $id);
+
+        $this->_em->getConnection()->beginTransaction();
+        try {
+            $area->setActivo(false);
+
+            $this->_em->merge($area);
+            $this->_em->flush();
+            $this->_em->getConnection()->commit();
+
+            $this->getRequest()->clearParams();
+            $this->_helper->redirector('areas-municipales', 'gobierno', 'administracion');
+        } catch (Exception $ex) {
+            $this->_em->getConnection()->rollback();
+            $this->_em->close();
+        }
+    }
+
+    public function secretariaObrasServiciosPublicosAction(){
+
+    }
+
+    public function obrasAction(){
+        $query = $this->_em->createQuery("SELECT o FROM My\Entity\Obra o WHERE o.activo = ?1");
+        $query->setParameter(1,true);
+        $obras = $query->getResult();
+        $this->view->obras = $obras;
+    }
+
+    public function nuevaObraAction(){
+        $form = new Administracion_Form_ObraForm();
+        $this->view->form = $form;
+
+        if($this->getRequest()->isPost()){
+            $data = $this->getRequest()->getPost();
+            if($form->isValid($data)){
+                $this->_em->getConnection()->beginTransaction();
+                try {
+                    $area = new My\Entity\Obra();
+                    $area->setTitulo($form->tituloobra->getValue());
+                    $area->setContenido($form->contenido->getValue());
+                    $area->setActivo(true);
+                    
+                    $this->_em->merge($area);
+                    $this->_em->flush();
+                    $this->_em->getConnection()->commit();
+
+                    $this->_helper->redirector('obras');
+                } catch (Exception $ex) {
+                    $this->_em->getConnection()->rollback();
+                    $this->_em->close();
+                    var_dump($ex);
+                    die();
+                }
+            }
+        }
+    }
+
+    public function editarObraAction(){
+        $id = $this->getParam('id');
+        $area = $this->_em->find('My\Entity\Obra',$id);
+        $form = new Administracion_Form_ObraForm();
+        $form->tituloobra->setValue($area->getTitulo());
+        $form->contenido->setValue($area->getContenido());
+        $this->view->form = $form;
+
+        if($this->getRequest()->isPost()){
+            $data = $this->getRequest()->getPost();
+            if($form->isValid($data)){
+                $this->_em->getConnection()->beginTransaction();
+                try {
+                    //$area = new My\Entity\Obra();
+                    $area->setTitulo($form->tituloobra->getValue());
+                    $area->setContenido($form->contenido->getValue());
+                    $area->setActivo(true);
+                    
+                    $this->_em->merge($area);
+                    $this->_em->flush();
+                    $this->_em->getConnection()->commit();
+
+                    $this->_helper->redirector('obras');
+                } catch (Exception $ex) {
+                    $this->_em->getConnection()->rollback();
+                    $this->_em->close();
+                    var_dump($ex);
+                    die();
+                }
+            }
+        }
+    }
+
+    public function borrarObraAction(){
+        $id = $this->getParam('id');
+        $area = $this->_em->find('My\Entity\Obra', $id);
+
+        $this->_em->getConnection()->beginTransaction();
+        try {
+            $area->setActivo(false);
+
+            $this->_em->merge($area);
+            $this->_em->flush();
+            $this->_em->getConnection()->commit();
+
+            $this->getRequest()->clearParams();
+            $this->_helper->redirector('obras', 'gobierno', 'administracion');
+        } catch (Exception $ex) {
+            $this->_em->getConnection()->rollback();
+            $this->_em->close();
+        }
+    }
+
+    public function direccionesObrasAction()
+    {
+        $query = $this->_em->createQuery("SELECT a FROM My\Entity\AreaMunicipal a WHERE a.activo = ?1 AND a.vista = 'secretaria-obras'");
+        $query->setParameter(1, true);
+        $direcciones = $query->getResult();
+        $this->view->areas = $direcciones;
+    }
+
+    public function nuevaDireccionObrasAction()
+    {
+        $form  = new Administracion_Form_DireccionObrasForm();
+        $this->view->form = $form;
+        
+        if($this->getRequest()->isPost()){
+            $data = $this->getRequest()->getPost();
+            if($form->isValid($data)){
+                $this->_em->getConnection()->beginTransaction();
+                try {
+                    $area = new My\Entity\AreaMunicipal();
+                    $area->setTitulo($form->titulodireccion->getValue());
+                    $area->setFunciones($form->contenidodireccion->getValue());
+                    $area->setActivo(true);
+                    $area->setVista("secretaria-obras");
+                    
+                    $this->_em->merge($area);
+                    $this->_em->flush();
+                    $this->_em->getConnection()->commit();
+
+                    $this->_helper->redirector('direcciones-obras');
+                } catch (Exception $ex) {
+                    $this->_em->getConnection()->rollback();
+                    $this->_em->close();
+                    var_dump($ex);
+                    die();
+                }
+            }
+        }
+    }
+
+    public function editarDireccionObrasAction()
+    {
+        $id = $this->getParam('id');
+        $area = $this->_em->find('My\Entity\AreaMunicipal',$id);
+        $form  = new Administracion_Form_DireccionObrasForm();
+        $form->titulodireccion->setValue($area->getTitulo());
+        $form->contenidodireccion->setValue($area->getFunciones());
+
+        $this->view->form = $form;
+        
+        if($this->getRequest()->isPost()){
+            $data = $this->getRequest()->getPost();
+            if($form->isValid($data)){
+                $this->_em->getConnection()->beginTransaction();
+                try {
+                    //$area = new My\Entity\AreaMunicipal();
+                    $area->setTitulo($form->titulodireccion->getValue());
+                    $area->setFunciones($form->contenidodireccion->getValue());
+                    
+                    $this->_em->merge($area);
+                    $this->_em->flush();
+                    $this->_em->getConnection()->commit();
+
+                    $this->_helper->redirector('direcciones-obras');
+                } catch (Exception $ex) {
+                    $this->_em->getConnection()->rollback();
+                    $this->_em->close();
+                    var_dump($ex);
+                    die();
+                }
+            }
+        }
+    }
+
+    public function borrarDireccionObrasAction(){
+
+        $id = $this->getParam('id');
+        $area = $this->_em->find('My\Entity\AreaMunicipal', $id);
+
+        $this->_em->getConnection()->beginTransaction();
+        try {
+            $area->setActivo(false);
+
+            $this->_em->merge($area);
+            $this->_em->flush();
+            $this->_em->getConnection()->commit();
+
+            $this->getRequest()->clearParams();
+            $this->_helper->redirector('direcciones-obras', 'gobierno', 'administracion');
+        } catch (Exception $ex) {
+            $this->_em->getConnection()->rollback();
+            $this->_em->close();
+        }
+    }
+
+    public function archivosConsejoAction(){
+        
     }
 
 

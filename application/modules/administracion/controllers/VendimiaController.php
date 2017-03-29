@@ -217,7 +217,7 @@ class Administracion_VendimiaController extends Zend_Controller_Action {
     }
 
     public function reinaAction() {
-        $candidatas = $this->_em->getRepository('My\Entity\Candidata')->findBy(array('periodo' => date('Y'), 'periodo' => date('Y')));
+        $candidatas = $this->_em->getRepository('My\Entity\Candidata')->findBy(array('periodo' => date('Y')));
 
         $queryreina = $this->_em->createQuery('SELECT c FROM My\Entity\Candidata c WHERE c.reina = 1 AND c.estado = 0 ORDER BY c.periodo ASC');
         $reinas = $queryreina->getResult();

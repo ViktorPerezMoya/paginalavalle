@@ -1,0 +1,39 @@
+<?php 
+$obras = $this->obras;
+?>
+<div class="jumbotron">
+	<center>
+	<h2>Obras</h2>
+	</center>
+</div>
+<div style="display: flex;justify-content: center;align-items: center;">
+
+	<div class="col-md-6">
+        <a class="btn btn-info" style="float: right;" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'nueva-obra')); ?>">Neuva Obra</a>
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>
+				<th>Titulo</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php 
+		$o = new My\Entity\Obra();
+		foreach ($obras as $o) {
+			?>
+			<tr>
+				<td><?php echo $o->getTitulo(); ?></td>
+				<td>
+                    <a class="btn btn-success btn-sm" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'editar-obra', 'id' => $o->getId())); ?>">Editar</a>
+                    <a class="btn btn-danger btn-sm" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'borrar-obra', 'id' => $o->getId())); ?>">Eliminar</a>
+				</td>
+			</tr>
+			<?php
+		}
+		?>
+			
+		</tbody>
+	</table>
+	</div>
+</div>

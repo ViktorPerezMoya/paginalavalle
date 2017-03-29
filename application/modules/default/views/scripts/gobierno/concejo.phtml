@@ -4,10 +4,10 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">H.C.D.</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Declaraciones</a></li>
-            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Ordenanzas</a></li>
-            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Resoluciones</a></li>
-            <li role="presentation"><a href="#settings2" aria-controls="settings" role="tab" data-toggle="tab">Ordenanza Tarifaria</a></li>
+            <li role="presentation"><a href="#tab-declaracion" aria-controls="tab-declaracion" role="tab" data-toggle="tab">Declaraciones</a></li>
+            <li role="presentation"><a href="#tab-ordenanzas" aria-controls="tab-ordenanzas" role="tab" data-toggle="tab">Ordenanzas</a></li>
+            <li role="presentation"><a href="#tab-resoluciones" aria-controls="tab-resoluciones" role="tab" data-toggle="tab">Resoluciones</a></li>
+            <li role="presentation"><a href="#tab-ordenanzatarifaria" aria-controls="tab-ordenanzatarifaria" role="tab" data-toggle="tab">Ordenanza Tarifaria</a></li>
         </ul>
 
         <!-- Tab panes -->
@@ -17,77 +17,85 @@
                     <img class="img-responsive" src="<?php echo $this->baseUrl() . '/img/concejales.png'; ?>"/>
                 </center>
             </div>
-            <div role="tabpanel" class="tab-pane" id="profile">
+            <div role="tabpanel" class="tab-pane" id="tab-declaracion" style="height: 700px;overflow: scroll;">
 
                 <?php
-                for ($i = 0; $i < 10; $i++):
+                $declaraciones = $this->declaraciones;
+                $arch = new My\Entity\ProyectoHCD();
+                foreach ($declaraciones as $arch){
                     ?>
                     <div class="media archivos-hcd">
                         <div class="media-left">
-                            <a href="#">
+                            <a href="<?php echo $this->baseUrl().'/pdf/proyectohcd/'.$arch->getDocumento(); ?>" target="_blank">
                                 <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">DECLARACIÒN Nº 415/2009</h4>
-                            <p>Proyecto de Declaración referido a 1° Encuentro Provincial de Escritores.</p>
+                            <h4 class="media-heading"><?php echo $arch->getTitulo(); ?></h4>
+                            <p><?php echo $arch->getResumen(); ?></p>
                         </div>
                     </div>
                     <?php
-                endfor;
+                }
                 ?>
 
             </div>
-            <div role="tabpanel" class="tab-pane" id="messages">
+            <div role="tabpanel" class="tab-pane" id="tab-ordenanzas" style="height: 700px;overflow: scroll;">
                 <?php
-                for ($i = 0; $i < 10; $i++):
+                foreach ($this->ordenanzas as $arch){
                     ?>
                     <div class="media archivos-hcd">
                         <div class="media-left">
-                            <a href="#">
+                            <a href="<?php echo $this->baseUrl().'/pdf/proyectohcd/'.$arch->getDocumento(); ?>" target="_blank">
                                 <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">ORDENANZA Nº 56/92</h4>
-                            <p>Proyecto referente a la regularización de locales de esparcimiento y diversión nocturna en el Departamento de Lavalle”, y sus acumulados</p>
+                            <h4 class="media-heading"><?php echo $arch->getTitulo(); ?></h4>
+                            <p><?php echo $arch->getResumen(); ?></p>
                         </div>
                     </div>
                     <?php
-                endfor;
+                }
                 ?>
             </div>
-            <div role="tabpanel" class="tab-pane" id="settings">
+            <div role="tabpanel" class="tab-pane" id="tab-resoluciones" style="height: 700px;overflow: scroll;">
                 <?php
-                for ($i = 0; $i < 10; $i++):
+                foreach ($this->resoluciones as $arch){
                     ?>
                     <div class="media archivos-hcd">
                         <div class="media-left">
-                            <a href="#">
+                            <a href="<?php echo $this->baseUrl().'/pdf/proyectohcd/'.$arch->getDocumento(); ?>" target="_blank">
                                 <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">RESOLUCIÓN Nº 4147/2.012</h4>
-                            <p>Proyecto referente a crear un “skatepark” para desarrollo actividad de skate o skateboarding, bike y rollers en el Departamento Lavalle.</p>
+                            <h4 class="media-heading"><?php echo $arch->getTitulo(); ?></h4>
+                            <p><?php echo $arch->getResumen(); ?></p>
                         </div>
                     </div>
                     <?php
-                endfor;
+                }
                 ?>
             </div>
-            <div role="tabpanel" class="tab-pane" id="settings2">
-                <div class="media archivos-hcd">
+            <div role="tabpanel" class="tab-pane" id="tab-ordenanzatarifaria" style="height: 700px;overflow: scroll;">
+                <?php
+                foreach ($this->ordTarifarias as $arch){
+                    ?>
+                    <div class="media archivos-hcd">
                         <div class="media-left">
-                            <a href="#">
+                            <a href="<?php echo $this->baseUrl().'/pdf/proyectohcd/'.$arch->getDocumento(); ?>" target="_blank">
                                 <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">ORDENANZA TARIFARIA</h4>
-                            <p>Ordenanza Tarifaria 2014</p>
+                            <h4 class="media-heading"><?php echo $arch->getTitulo(); ?></h4>
+                            <p><?php echo $arch->getResumen(); ?></p>
                         </div>
                     </div>
+                    <?php
+                }
+                ?>
             </div>
         </div>
 

@@ -48,6 +48,13 @@ class AreaMunicipal {
      */
     private $telefono;
     
+    /**
+     * 
+     * @var string
+     * @Column(type="string", nullable=true)
+     */
+    private $vista;
+    
     
     /**
      * 
@@ -130,6 +137,12 @@ class AreaMunicipal {
         $this->funciones = $funciones;
     }
 
+    function setVista($vista){
+        $this->vista = $vista;
+    }
 
+    function getVista(){
+        return $this->vista;
+    }
 
 }

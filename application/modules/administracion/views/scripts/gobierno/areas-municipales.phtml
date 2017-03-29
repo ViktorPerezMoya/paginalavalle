@@ -8,7 +8,7 @@ $areas = $this->areas;
 </div>
 
 <div id="div-padre" style="display: flex;justify-content: center;align-items: center;">
-    <div id="div-hijo" style="width: 700px;">
+    <div id="div-hijo" class="col-md-8">
         <a class="btn btn-info" style="float: right;" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'nueva-area')); ?>">Neuva Area</a>
         <table class="table table-hover table-striped table-responsive">
             <thead>
@@ -34,7 +34,7 @@ $areas = $this->areas;
                         <td><?php echo $a->getTelefono(); ?></td>
                         <td>
                             <a class="btn btn-success btn-sm" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'editar-area', 'id' => $a->getId())); ?>">Editar</a>
-                            <a class="btn btn-danger btn-sm" href="<?php echo $this->url(array('controller' => 'turismo', 'action' => 'eliminar-area', 'id' => $a->getId())); ?>">Eliminar</a>
+                            <a class="btn btn-danger btn-sm" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'borrar-area', 'id' => $a->getId())); ?>">Eliminar</a>
                         </td>
                     </tr>  
                     <?php

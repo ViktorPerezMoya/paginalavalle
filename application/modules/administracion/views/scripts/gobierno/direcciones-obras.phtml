@@ -1,0 +1,38 @@
+<?php
+$areas = $this->areas;
+?>
+<div class="jumbotron">
+    <center>
+        <h1>Areas Municipales</h1>
+    </center>
+</div>
+
+<div id="div-padre" style="display: flex;justify-content: center;align-items: center;">
+    <div id="div-hijo" class="col-md-8">
+        <a class="btn btn-info" style="float: right;" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'nueva-direccion-obras')); ?>">Neuva Area</a>
+        <table class="table table-hover table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $a = new My\Entity\AreaMunicipal();
+                foreach ($areas as $a):
+                    ?>
+                    <tr>
+                        <td><?php echo $a->getTitulo(); ?></td>
+                        <td>
+                            <a class="btn btn-success btn-sm" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'editar-direccion-obras', 'id' => $a->getId())); ?>">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'borrar-direccion-obras', 'id' => $a->getId())); ?>">Eliminar</a>
+                        </td>
+                    </tr>  
+                    <?php
+                endforeach;
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>

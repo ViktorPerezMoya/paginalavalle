@@ -1,318 +1,82 @@
 <div class="contenedor">
     <div class="row">
+    <?php 
+    $areas = $this->areas;
+    $a = new My\Entity\AreaMunicipal();
+    foreach ($areas as $a) {
+        ?>
         <div class="col-md-2 col-sm-4">
             <div class="anime">
                 <div class="anime--flip">
                     <div class="anime--flip__flipper">
                         <div class="anime--flip__front">
                             <div clas="front">
-                                <h3>Dirección de Educacion y familia</h3>
+                                <h3><?php echo $a->getTitulo(); ?></h3>
                             </div>
                         </div>
                         <div class="anime--flip__back">
                             <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
+                                <p><?php echo 'A cargo de : '.$a->getAcargode(); ?></p>
+                                <p>Dirección: <?php echo $a->getDireccion(); ?></p>
+                                <p>Contacto: <?php echo $a->getTelefono(); ?></p>
+                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal-<?php echo $a->getId(); ?>">Ver mas</a></center>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Dirección de Hacienda</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Dirección de Promoción Económica</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Dir. de Deleg. y Relación con la Comunidad</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Dirección de Cultura, Turimo y Deporte</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Direccion de Desarrollo Humano</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Direccion de Compras y Suministros</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Inspección General</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Comunicación y Prensa</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Recursos Humanos</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Recursos Humanos</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Ventanilla Única</h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <?php
+    }
+    ?>
 
-        </div>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3>Computos</a></h3>
-                            </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p>Director: Adriana Menconi</p>
-                                <p>Dirección: Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                                <p>Contacto: 0261- 4941466</p>
-                                <center><a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Ver mas</a></center>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Dirección de Hacienda</h4>
-            </div>
-            <div class="modal-body">
-                    <p><strong>Director:</strong> Adriana Menconi</p>
-                    <p><strong>Dirección:</strong> Planta alta de la casa central de la Municipalidad, calle Beltrán 37 de la ciudad cabecera de Lavalle.</p>
-                    <p><strong>Contacto:</strong> 0261- 4941466</p>
-                <div class="panel panel-primary">
-                    <!-- Default panel contents -->
-                    <div class="panel-heading">
-                        Funciones
+<?php 
+    foreach ($areas as $a) {
+        ?>
+        <div class="modal fade" id="modal-<?php echo $a->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"><?php echo $a->getTitulo(); ?></h4>
                     </div>
+                    <div class="modal-body">
+                            <p><strong>Director:</strong> <?php echo $a->getAcargode(); ?></p>
+                            <p><strong>Dirección:</strong> <?php echo $a->getDireccion();?></p>
+                            <p><strong>Contacto:</strong> <?php echo $a->getTelefono(); ?></p>
+                        <div class="panel panel-primary">
+                            <!-- Default panel contents -->
+                            <div class="panel-heading">
+                                Funciones
+                            </div>
 
-                    <!-- List group -->
-                    <ul class="list-group">
-                        <li class="list-group-item">Coordinar y participar en la elaboración y ejecución del proyecto de presupuesto y sus modificaciones y tarifaria de la Municipalidad.</li>
-                        <li class="list-group-item">Supervisar, controlar y asesorar respecto de la ejecución presupuestaria del municipio.</li>
-                        <li class="list-group-item">Controlar que los sistemas de información contable de ingresos y egresos se encuentre actualizado.</li>
-                        <li class="list-group-item">Controlar la confección de los balances mensuales, trimestrales y cuenta general del ejercicio para su presentación en tiempo y forma al Concejo Deliberante de Lavalle y Tribunal de Cuentas de la provincia y documentación respaldatoria.</li>
-                        <li class="list-group-item">Contestar las observaciones efectuadas por el Tribunal de Cuentas.</li>
-                        <li class="list-group-item">Asesorar respecto de convenios con entidades financieras para la percepción de Tasas y derechos municipales.</li>
-                        <li class="list-group-item">Supervisar las tareas de Tesorería Municipal.</li>
-                        <li class="list-group-item">Controlar el registro de bienes inventariables.</li>
-                    </ul>
+                            <!-- List group -->
+                            <ul class="list-group">
+                                <?php 
+                                $lista = explode(";", $a->getFunciones());
+                                foreach ($lista as $f) {
+                                    ?>
+                                    <li class="list-group-item"><?php echo $f; ?></li>
+                                    <?php
+                                }
+                                ?>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            </div>
         </div>
-    </div>
-</div>
+        <?php
+    }
+?>
