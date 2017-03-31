@@ -14,6 +14,7 @@ $archs = $this->acuerdos;
     <table class="table table-hover table-striped" id="tbacuerdo">
     <thead>
         <tr>
+            <th>ID</th>
             <th>Ejercicio</th>
             <th>Periodo</th>
             <th>Descripcion</th>
@@ -28,6 +29,7 @@ $archs = $this->acuerdos;
             if ($a->isMostrar()):
                 ?>
                 <tr id="<?php echo 'acuerdo-' . $a->getId(); ?>">
+                    <td><?php echo $a->getId(); ?></td>
                     <td><?php echo $a->getEjercicio(); ?></td>
                     <td><?php echo $a->getPeriodo(); ?></td>
                     <td><?php echo $a->getDescripcion(); ?></td>

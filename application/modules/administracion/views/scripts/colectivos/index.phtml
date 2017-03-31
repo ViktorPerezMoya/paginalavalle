@@ -1,0 +1,30 @@
+<div class="jumbotron">
+<center><h2>Horarios de colectivo</h2></center>
+</div>
+<div style="display: flex;justify-content: center;align-items: center;">
+<div class="col-md-8">
+<table class="table table-hover table-striped">
+	<thead>
+		<tr>
+			<th>Titulo</th>
+			<th>URL</th>
+			<th>Accion</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php 
+		foreach ($this->horarios as $c) {
+			?>
+			<tr>
+				<td><?php echo $c->getTitulo(); ?></td>
+				<td><?php echo $c->getUrl(); ?></td>
+				<td>
+					<a class="btn btn-warning" href="<?php echo $this->url(array('controller'=>'colectivos','action'=>'cambiar-horario','id'=>$c->getId())); ?>">Cambiar Horario</a>
+
+				</td>
+			</tr>
+			<?php
+		}
+		?>
+	</tbody>
+</table>

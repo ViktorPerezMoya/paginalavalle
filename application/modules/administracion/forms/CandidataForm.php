@@ -11,7 +11,7 @@ class Administracion_Form_CandidataForm extends Zend_Form
         $nombre = new Zend_Form_Element_Text('nombre');
         $nombre->addFilter('StripTags')
                 ->addFilter('StringTrim')
-                ->setAttribs(array('class'=>'input-sm'))
+                ->setAttribs(array('class'=>'form-control','placeholder'=>'Ingrese nombre'))
                 ->setRequired()
                 ->addErrorMessage('Campo requerido');
         $nombre->setLabel('Nombre: ');
@@ -19,15 +19,15 @@ class Administracion_Form_CandidataForm extends Zend_Form
         $distrito = new Zend_Form_Element_Text('distrito');
         $distrito->addFilter('StripTags')
                 ->addFilter('StringTrim')
-                ->setAttribs(array('class'=>'input-sm'))
+                ->setAttribs(array('class'=>'form-control','placeholder'=>'Ingrese localidad'))
                 ->setRequired()
                 ->addErrorMessage('Campo requerido');
-        $distrito->setLabel('Distrito: ');
+        $distrito->setLabel('Localidad: ');
         
         $edad = new Zend_Form_Element_Text('edad');
         $edad->addFilter('StripTags')
                 ->addFilter('StringTrim')
-                ->setAttribs(array('class'=>'input-sm','min'=>0))
+                ->setAttribs(array('class'=>'form-control','min'=>0,'placeholder'=>'Ingrese edad'))
                 ->setRequired()
                 ->addErrorMessage('Campo requerido');
         $edad->setLabel('Edad: ');
@@ -36,15 +36,23 @@ class Administracion_Form_CandidataForm extends Zend_Form
         $ojos = new Zend_Form_Element_Text('ojos');
         $ojos->addFilter('StripTags')
                 ->addFilter('StringTrim')
-                ->setAttribs(array('class'=>'input-sm'))
+                ->setAttribs(array('class'=>'form-control','placeholder'=>'Ingrese color de ojos'))
                 ->setRequired()
                 ->addErrorMessage('Campo requerido');
         $ojos->setLabel('Ojos: ');
+
+        $estatura = new Zend_Form_Element_Text('estatura');
+        $estatura->addFilter('StripTags')
+                ->addFilter('StringTrim')
+                ->setAttribs(array('class'=>'form-control','placeholder'=>'Ingrese estatura ej.: 1,70'))
+                ->setRequired()
+                ->addErrorMessage('Campo requerido');
+        $estatura->setLabel('Estatura: ');
         
         $cabello = new Zend_Form_Element_Text('cabello');
         $cabello->addFilter('StripTags')
                 ->addFilter('StringTrim')
-                ->setAttribs(array('class'=>'input-sm'))
+                ->setAttribs(array('class'=>'form-control','placeholder'=>'Color de cabello'))
                 ->setRequired()
                 ->addErrorMessage('Campo requerido');
         $cabello->setLabel('Cabello: ');
@@ -52,7 +60,7 @@ class Administracion_Form_CandidataForm extends Zend_Form
         $estudios = new Zend_Form_Element_Text('estudios');
         $estudios->addFilter('StripTags')
                 ->addFilter('StringTrim')
-                ->setAttribs(array('class'=>'input-sm'))
+                ->setAttribs(array('class'=>'form-control','placeholder'=>'Estudios de la candidata'))
                 ->setRequired()
                 ->addErrorMessage('Campo requerido');
         $estudios->setLabel('Estudios: ');
@@ -60,7 +68,7 @@ class Administracion_Form_CandidataForm extends Zend_Form
         $hobby = new Zend_Form_Element_Text('hobby');
         $hobby->addFilter('StripTags')
                 ->addFilter('StringTrim')
-                ->setAttribs(array('class'=>'input-sm'))
+                ->setAttribs(array('class'=>'form-control','placeholder'=>'Hobby de la candidata'))
                 ->setRequired()
                 ->addErrorMessage('Campo requerido');
         $hobby->setLabel('Hobby: ');
@@ -68,30 +76,9 @@ class Administracion_Form_CandidataForm extends Zend_Form
         $submit = new Zend_Form_Element_Submit('Guardar');
         $submit->setAttribs(array('class'=>'btn btn-primary'));
 
-        $this->addElements(array($nombre, $distrito,$edad,$ojos,$cabello,$estudios,$hobby, $submit));
+        $this->addElements(array($nombre, $distrito,$edad,$ojos,$cabello,$estatura,$estudios,$hobby, $submit));
 
-        $this->setElementDecorators(array(
-            'ViewHelper',
-            //'Errors',
-            array(array('data' => 'HtmlTag'), array('tag' => 'td')),
-            array('Label', array('tag' => 'td')),
-            array('ErrorsHtmlTag', array('tag' => 'td')),
-            array(array('row' => 'HtmlTag'), array('tag' => 'tr'))
-        ));
-
-        $submit->setDecorators(array('ViewHelper',
-            array(array('data' => 'HtmlTag'), array('tag' => 'td', 'class' => 'element')),
-            array(array('emptyrow' => 'HtmlTag'), array('tag' => 'td', 'class' => 'element')),
-            array(array('row' => 'HtmlTag'), array('tag' => 'tr'))
-        ));
-
-        $this->setDecorators(
-                array(
-                    "FormElements",
-                    array("HtmlTag", array("tag" => "table")),
-                    "Form"
-                )
-        );
+        
     }
 
 

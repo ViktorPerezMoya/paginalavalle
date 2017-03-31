@@ -3,7 +3,7 @@
     <a href="#" class="btn btn-info btn-lg" style="margin: 30px;">Reina Actual</a>
 </div>
 <hr>
-<div class="row">
+<div class="row" style="margin-left: 40px;margin-right: 30px;">
 
     <?php
     //var_dump($this->candidatas);die();
@@ -12,20 +12,24 @@
     foreach ($cs as $c):
         ?>
         <div class="col-md-3 col-sm-3">
+        <div style="display: flex;justify-content: center;align-items: center;">
+        <div style="width: 10em">
             <?php
             if ($c->getImagenes()[0] != null) {
-                ?><a href="#" data-toggle="modal" data-target="#myModal<?php echo $c->getId_candidata(); ?>"><img class="img-responsive img-circle" style="float: left;margin-right: 20px;height: 250px;width: 250px;" src="<?php echo $this->baseUrl() . '/img/candidatas/' . $c->getImagenes()[0]->getUrl(); ?>"/></a><?php
+                ?><a href="#" data-toggle="modal" data-target="#myModal<?php echo $c->getId_candidata(); ?>"><img class="img-responsive img-thumbnail" style="float: left;margin-right: 20px;" src="<?php echo $this->baseUrl() . '/img/candidatas/' . $c->getImagenes()[0]->getUrl(); ?>"/></a><?php
             } else {
-                ?><img class="img-responsive img-circle img-thumbnail" style="float: left;margin-right: 20px;height: 250px;width: 250px;" src="<?php echo $this->baseUrl() . '/img/candidatas/default.jpg'; ?>"/><?php
+                ?><img class="img-responsive img-thumbnail" style="float: left;margin-right: 20px;" src="<?php echo $this->baseUrl() . '/img/candidatas/perfil-default.jpg'; ?>"/><?php
                 }
                 ?>
+                </div></div>
 
-            <div style="text-align: left;">
+            <div style="text-align: left;margin-bottom: 30px;">
                 <p><strong>Nombre: </strong><?php echo $c->getNombre(); ?></p>
                 <p><strong>Distrito: </strong><?php echo $c->getDistrito(); ?></p>
                 <p><strong>Edad: </strong><?php echo $c->getEdad(); ?></p>
                 <p><strong>Ojos: </strong><?php echo $c->getOjos(); ?></p>
                 <p><strong>Cabello: </strong><?php echo $c->getCabello(); ?></p>
+                <p><strong>Estatura: </strong><?php echo $c->getEstatura(); ?></p>
                 <p><strong>Estudios: </strong><?php echo $c->getEstudios(); ?></p>
                 <p><strong>Hobby: </strong><?php echo $c->getHobby(); ?></p>
                 <a class="btn btn-success btn-sm" href="<?php echo $this->url(array('controller' => 'vendimia', 'action' => 'editar-candidata', 'id' => $c->getId_candidata())); ?>">Editar</a>

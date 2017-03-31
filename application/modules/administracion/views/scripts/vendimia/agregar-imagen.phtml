@@ -1,5 +1,7 @@
 <div class="row">
+<div class=""><center><h1><?php  echo $this->candidata->getNombre();?></h1></center></div>
     <center>
+        <
         <?php
         if (sizeof($this->candidata->getImagenes()) > 0) {
             ?>
@@ -7,7 +9,7 @@
             <?php
         } else {
             ?>
-            <img src="<?php echo $this->baseUrl() . '/img/candidatas/default.jpg'; ?>" class="img-responsive img-thumbnail">
+            <img src="<?php echo $this->baseUrl() . '/img/candidatas/perfil-default.jpg'; ?>" class="img-responsive img-thumbnail">
             <p>Sin imagen</p>
             <?php
         }

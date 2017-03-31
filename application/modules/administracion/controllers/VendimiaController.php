@@ -54,6 +54,7 @@ class Administracion_VendimiaController extends Zend_Controller_Action {
                     $candidata->setEstudios($form->estudios->getValue());
                     $candidata->setHobby($form->hobby->getValue());
                     $candidata->setOjos($form->ojos->getValue());
+                    $candidata->setEstatura($form->estatura->getValue());
                     $candidata->setPeriodo(date('Y'));
                     $candidata->setReina(false);
                     $candidata->setVotos(0);
@@ -132,6 +133,7 @@ class Administracion_VendimiaController extends Zend_Controller_Action {
         $form->distrito->setValue($candidata->getDistrito());
         $form->edad->setValue($candidata->getEdad());
         $form->estudios->setValue($candidata->getEstudios());
+        $form->estatura->setValue($candidata->getEstatura());
         $form->hobby->setValue($candidata->getHobby());
         $form->ojos->setValue($candidata->getOjos());
         $this->view->form = $form;
@@ -146,6 +148,7 @@ class Administracion_VendimiaController extends Zend_Controller_Action {
                     $candidata->setDistrito($form->distrito->getValue());
                     $candidata->setEdad($form->edad->getValue());
                     $candidata->setEstudios($form->estudios->getValue());
+                    $candidata->setEstatura($form->estatura->getValue());
                     $candidata->setHobby($form->hobby->getValue());
                     $candidata->setOjos($form->ojos->getValue());
 
@@ -275,7 +278,7 @@ class Administracion_VendimiaController extends Zend_Controller_Action {
     }
 
     public function galeriaAction() {
-        $query = $this->_em->createQuery("select i from My\Entity\Galeria i where i.galeria = ?1 ORDER BY i.id DESC");
+        $query = $this->_em->createQuery("select i from My\Entity\Galeria i where i.galeria = ?1 and i.estado = true ORDER BY i.id DESC");
         $query->setParameter(1, 'vendimia');
 
         $imagenes = $query->getResult();
@@ -345,11 +348,9 @@ class Administracion_VendimiaController extends Zend_Controller_Action {
 
         $this->_em->getConnection()->beginTransaction();
         try {
-            if (!rename('./img/galeria/' . $imagen->getUrl(), './img/galeria/DELETED_' . $imagen->getUrl() . '.jpg')) {//renombro el archivo
-                die();
-            }
 
-            $this->_em->remove($imagen);
+            $imagen->setEstado(false);
+            $this->_em->merge($imagen);
             $this->_em->getConnection()->commit();
             $this->_em->flush();
             echo 'Se elimino la imagen exitosamente!!';

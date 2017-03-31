@@ -42,6 +42,12 @@ class Candidata {
     /**
      *
      * @var string
+     * @Column(type="string", length=55, nullable=true)
+     */
+    private $estatura;
+    /**
+     *
+     * @var string
      * @Column(type="string", length=255, nullable=true)
      */
     private $estudios;
@@ -195,7 +201,13 @@ class Candidata {
         $this->imagenes = $imagenes;
     }
 
+    function setEstatura($estatura){
+        $this->estatura = $estatura;
+    }
 
+    function getEstatura(){
+        return $this->estatura;
+    }
 
 }
 

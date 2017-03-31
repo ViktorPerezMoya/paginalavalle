@@ -62,13 +62,12 @@ class Administracion_AcuerdoController extends Zend_Controller_Action {
                             die();
                         }
 
-                        $momento = date('Ymdhis'); //obtengo el moemnto
-                        if (!rename('./pdf/acuerdo3949/' . $url, './pdf/acuerdo3949/ACUERDO_' . $acu->getEjercicio() . '_' . $acu->getPeriodo() . '_' . $momento . '.pdf')) {//renombro el archivo
+                        if (!rename('./pdf/acuerdo3949/' . $url, './pdf/acuerdo3949/'.$url.'('. $acu->getEjercicio() . '-' . $acu->getPeriodo() . ')'.'.pdf')) {//renombro el archivo
                             die();
                         }
 
 
-                        $acu->setUrl('ACUERDO_' . $acu->getEjercicio() . '_' . $acu->getPeriodo() . '_' . $momento . '.pdf');
+                        $acu->setUrl($url.'('. $acu->getEjercicio() . '-' . $acu->getPeriodo() . ')'.'.pdf');
                     }else{
                         $acu->setDescripcion("Documento sin descripcion");
                     }
@@ -132,19 +131,18 @@ class Administracion_AcuerdoController extends Zend_Controller_Action {
                             die();
                         }
 
-                        $momento = date('Ymdhis'); //obtengo el moemnto
-                        if (!rename('./pdf/acuerdo3949/' . $url, './pdf/acuerdo3949/ACUERDO_' . $acu->getEjercicio() . '_' . $acu->getPeriodo() . '_' . $momento . '.pdf')) {//renombro el archivo
+                        if (!rename('./pdf/acuerdo3949/' . $url, './pdf/acuerdo3949/' . $url.'('. $acu->getEjercicio() . '-' . $acu->getPeriodo() . ')'.'.pdf')) {//renombro el archivo
                             die();
                         }
 
 
-                        $acu->setUrl('ACUERDO_' . $acu->getEjercicio() . '_' . $acu->getPeriodo() . '_' . $momento . '.pdf');
+                        $acu->setUrl($url.'('. $acu->getEjercicio() . '-' . $acu->getPeriodo() . ')'.'.pdf');
                     }else{
-                        $momento = date('Ymdhis'); //obtengo el moemnto
-                        if (!rename('./pdf/acuerdo3949/' . $docuanterior, './pdf/acuerdo3949/ACUERDO_' . $acu->getEjercicio() . '_' . $acu->getPeriodo() . '_' . $momento . '.pdf')) {//renombro el archivo
+                        //$momento = date('Ymdhis'); //obtengo el moemnto
+                        if (!rename('./pdf/acuerdo3949/' . $docuanterior, './pdf/acuerdo3949/' .  $acu->getDescripcion().'('. $acu->getEjercicio() . '-' . $acu->getPeriodo() . ')'.'.pdf')) {//renombro el archivo
                             die();
                         }
-                        $acu->setUrl('ACUERDO_' . $acu->getEjercicio() . '_' . $acu->getPeriodo() . '_' . $momento . '.pdf');
+                        $acu->setUrl( $acu->getDescripcion().'('. $acu->getEjercicio() . '-' . $acu->getPeriodo() . ')'.'.pdf');
                     }
                     
                     $this->_em->merge($acu);
@@ -190,3 +188,27 @@ class Administracion_AcuerdoController extends Zend_Controller_Action {
         }
     }
 }
+/*
+
+if (sizeof($form->upload->getFileName()) > 0) {
+                        //$url = substr(strrchr($form->upload->getFileName(),   '/'), 1);//web
+
+                        $url = substr(strrchr($form->upload->getFileName(), '\\'), 1); //localhost
+                        $acu->setDescripcion(explode(".pdf", $url)[0]);
+
+                        $form->upload->receive(); //subimos el archivo
+                        if (!$form->upload->isReceived()) {//se subio? 
+                            die();
+                        }
+
+                        $momento = date('Ymdhis'); //obtengo el moemnto
+                        if (!rename('./pdf/acuerdo3949/' . $url, './pdf/acuerdo3949/ACUERDO_' . $acu->getEjercicio() . '_' . $acu->getPeriodo() . '_' . $momento . '.pdf')) {//renombro el archivo
+                            die();
+                        }
+
+
+                        $acu->setUrl('ACUERDO_' . $acu->getEjercicio() . '_' . $acu->getPeriodo() . '_' . $momento . '.pdf');
+                    }else{
+                        $acu->setDescripcion("Documento sin descripcion");
+                    }
+                    */

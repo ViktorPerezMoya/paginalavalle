@@ -33,6 +33,12 @@ class Galeria {
      * @Column(type="string", length=255)
      */
     private $galeria;
+    /**
+     *
+     * @var boolean
+     * @Column(type="boolean", length=255)
+     */
+    private $estado;
     function __construct() {
         
     }
@@ -68,7 +74,13 @@ class Galeria {
         $this->galeria = $galeria;
     }
 
+    function setEstado($estado = true){
+        $this->estado = $estado;
+    }
 
+    function getEstado(){
+         return $estado;
+    }
 
     
 }

@@ -39,7 +39,7 @@ class Default_VendimiaController extends Zend_Controller_Action
         $this->view->reina = $reina;
         
         // GALERIA
-        $query = $this->_em->createQuery("select i from My\Entity\Galeria i where i.galeria = ?1 ORDER BY i.id DESC");
+        $query = $this->_em->createQuery("select i from My\Entity\Galeria i where i.galeria = ?1 and i.estado = true ORDER BY i.id DESC");
         $query->setParameter(1, 'vendimia');
 
         $imagenes = $query->getResult();

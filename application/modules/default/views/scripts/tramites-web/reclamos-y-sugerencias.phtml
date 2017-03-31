@@ -12,7 +12,7 @@
 
 <div class="contenedor">
     <div class="jumbotron"><center><h1>Contacto</h1></center></div>
-    <form method="post">
+    <!--<form method="post">
         <table>
             <tr>
                 <td><label for="email">Email:</label></td>
@@ -35,8 +35,15 @@
                 <td><button class="btn btn-info" onclick="enviar()">Enviar</button></td>
             </tr>
         </table>
-    </form>
+    </form>-->
     
+</div>
+
+
+<div style="display: flex;justify-content: center;align-items: center;">
+<div class="col-md-6 panel panel-default">
+<?php echo $this->form; ?>
+</div>
 </div>
 
 <script type="text/javascript">

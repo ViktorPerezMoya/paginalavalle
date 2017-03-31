@@ -6,7 +6,7 @@ class Administracion_Form_NuevaImagenVendimiaForm extends Zend_Form {
         $this->setName('Nueva Imagen ');
 
         $titulo = new Zend_Form_Element_Text('titulo');
-        $titulo->setLabel('Titulo')->setAttribs(array('class' => 'input-sm'))->setRequired();
+        $titulo->setLabel('Titulo')->setAttribs(array('class' => 'form-control'))->setRequired();
 
         $upload = new Zend_Form_Element_File('uploadgrande');
         $upload->setLabel('Elegir Imagen')

@@ -11,13 +11,14 @@ $reina = $this->reina; //new My\Entity\Candidata();
                     $cont = 0;
                     $img = new My\Entity\Imagen();
                     foreach ($reina->getImagenes() as $img):
-                        if ($cont == 0) {
+                        //la primer imagen des de perfil asi q se ignora 
+                        if ($cont == 1) {
                             ?>
                             <div class="item active">
                                 <img src="<?php echo $this->baseUrl() . '/img/candidatas/' . $img->getUrl(); ?>"  class="thumbnail img_reina">
                             </div>
                             <?php
-                        } else {
+                        } else if($cont > 1){
                             ?>
                             <div class="item">
                                 <img src="<?php echo $this->baseUrl() . '/img/candidatas/' . $img->getUrl(); ?>"  class="thumbnail img_reina">
@@ -59,7 +60,7 @@ $reina = $this->reina; //new My\Entity\Candidata();
                 $i = new My\Entity\Galeria();
                 foreach ($this->imagenes as $i):
                     ?>
-                    <a class="img-thumbnail" href="<?php echo $this->baseUrl() . '/img/galeria/' . $i->getUrl(); ?>" title="Todas las candidatas" data-gallery>
+                    <a class="img-thumbnail" href="<?php echo $this->baseUrl() . '/img/galeria/' . $i->getUrl(); ?>" title="<?php echo $i->getTitulo(); ?>" data-gallery>
                         <img src="<?php echo $this->baseUrl() . '/img/galeria/thumbnails/' . $i->getUrl(); ?>">
                     </a>
                     <?php

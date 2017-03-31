@@ -80,7 +80,8 @@ body{
 .icono-servicio{
     font-size: 5em;
     padding: 10px;
-    width: 100%;
+    /*width: 100%;*/
+    text-align: center;
 }
 .titulo_servicios{
     text-align: center;

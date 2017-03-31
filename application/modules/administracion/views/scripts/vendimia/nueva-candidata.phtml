@@ -2,9 +2,12 @@
     <div class="jumbotron">
         <center><h1>Nueva Candidata <?php echo date('Y'); ?></h1></center>
     </div>
-    <?php
-    echo $this->form;
-    ?>
+    <div style="display: flex; justify-content: center; align-items: center;">
+    <div class="panel panel-default col-md-6">
+      <?php
+          echo $this->form;
+          ?>
+    </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function (){
@@ -12,6 +15,11 @@
        
        $("#edad").keyup(function (){
            this.value = (this.value + '').replace(/[^0-9]/g, '');
+       });
+
+
+       $("#estatura").keyup(function (){
+           this.value = (this.value + '').replace( /[^0-9.]/g, '');
        });
     });
 </script>

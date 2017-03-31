@@ -54,6 +54,10 @@ class Default_IndexController extends Zend_Controller_Action
         $rol = Zend_Auth::getInstance()->getIdentity()->getRol();
         $this->view->rol = $rol;
     }
+
+    public function sitioEnConstruccionAction(){
+        
+    }
     
 }
 

@@ -22,7 +22,7 @@
                         ?>
                         
                         <figcaption>
-                            <a href="#" class="item-modal" data-toggle="modal" data-target="#myModal"><h3><?php echo $c->getNombre(); ?></h3></a>
+                            <a href="#" class="item-modal" data-toggle="modal" data-target="#myModal<?php echo $c->getId_candidata(); ?>"><h3><?php echo $c->getNombre(); ?></h3></a>
                         </figcaption>
                     </figure>
                 </div>
@@ -33,37 +33,43 @@
 
 
         </div>
+    </div>
+</div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                    </div>
-                    <div class="modal-body">
-                        <center>
-                            <img src="<?php echo $this->baseUrl() . '/img/candidatas/reina-perfil.jpg' ?>" alt="..." class="img-circle img-candidata img-thumbnail">
-                        </center>
-                        <div class="descripcion_candidadta">
-                            <h3>El Chilcal</h3>
-                            <p><span>Nombre: </span>Camila Sol Morales</p>
-                            <p><span>Edad: </span>21</p>
-                            <p><span>Ojos: </span>Marrones</p>
-                            <p><span>Cabello: </span>Castaño claro</p>
-                            <p><span>Estudios: </span>Es estilista y cursará la carrera de periodismo</p>
-                            <p><span>Hobby: </span>Pasar tiempo con amigos y ver obras de teatro</p>
+<!-- Modal -->
+<?php 
 
+    foreach ($this->candidatas as $c):
+        ?>
+            <div class="modal fade" id="myModal<?php echo $c->getId_candidata();?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel"><?php echo $c->getDistrito(); ?></h4>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <div class="modal-body">
+                            <center>
+                                <img src="<?php echo $this->baseUrl() . '/img/candidatas/'.$c->getImagenes()[1]->getUrl(); ?>" alt="..." class="img-responsive img-thumbnail">
+                            </center>
+                            <div class="descripcion_candidadta" style="margin: 20px 50px;">
+                                <p><strong>Nombre: </strong><?php echo $c->getNombre();?></p>
+                                <p><strong>Edad: </strong><?php echo $c->getEdad();?></p>
+                                <p><strong>Ojos: </strong><?php echo $c->getOjos();?></p>
+                                <p><strong>Cabello: </strong><?php echo $c->getCabello();?></p>
+                                <p><strong>Estudios: </strong><?php echo $c->getEstudios();?></p>
+                                <p><strong>Hobby: </strong><?php echo $c->getHobby();?></p>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div>
-</div>
+        <?php
+    endforeach;
+
+?>
