@@ -4,51 +4,17 @@
         <div class="col-md-12">
 
             <center>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central1.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central1.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central2.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central2.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central3.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central3.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central1.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central1.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central2.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central2.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central3.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central3.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central1.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central1.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central2.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central2.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central3.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central3.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central1.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central1.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central2.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central2.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central3.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central3.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central1.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central1.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central2.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central2.jpg">
-                </a>
-                <a class="img-thumbnail" href="<?php echo $this->baseUrl(); ?>/img/galeria/fiesta-central3.jpg" title="Todas las candidatas" data-gallery>
-                    <img src="<?php echo $this->baseUrl(); ?>/img/galeria/thumbnails/fiesta-central3.jpg">
-                </a>
+                <?php
+                $i = new My\Entity\Galeria();
+                foreach ($this->imagenes as $i):
+                    ?>
+                    <a class="img-thumbnail" href="<?php echo $this->baseUrl() . '/img/galeria/' . $i->getUrl(); ?>" title="<?php echo $i->getTitulo(); ?>" data-gallery>
+                        <img src="<?php echo $this->baseUrl() . '/img/galeria/thumbnails/' . $i->getUrl(); ?>">
+                    </a>
+                    <?php
+                endforeach;
+                ?>
+
             </center>
             <!-- The Gallery as lightbox dialog, should be a child element of the document body -->
             <div id="blueimp-gallery" class="blueimp-gallery">
