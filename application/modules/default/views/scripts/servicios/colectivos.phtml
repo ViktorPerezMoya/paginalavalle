@@ -1,10 +1,10 @@
 <div id="colectivos" class="row colectivos colectivos-centrar">
     <div id="ruta24" class="col-md-5 recorrido centrar-recorrido">
-        <div class="recuadro"><a href="#">Ruta 24 <i class="fa fa-download" aria-hidden="true"></i></a></div>
+        <div class="recuadro"><a href="<?php echo $this->baseUrl().'/pdf/colectivo/'.$this->horarios[0]->getUrl(); ?>" target="_blank"><?php echo $this->horarios[0]->getTitulo(); ?> <i class="fa fa-download" aria-hidden="true"></i></a></div>
     </div>
 
     <div id="ruta40" class="col-md-5 recorrido centrar-recorrido">
-        <div class="recuadro"><a href="#">Ruta 40 <i class="fa fa-download" aria-hidden="true"></i></a></div>
+        <div class="recuadro"><a href="<?php echo $this->baseUrl().'/pdf/colectivo/'.$this->horarios[1]->getUrl(); ?>" target="_blank"><?php echo $this->horarios[1]->getTitulo(); ?> <i class="fa fa-download" aria-hidden="true"></i></a></div>
     </div>
 </div>
 

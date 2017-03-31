@@ -3,9 +3,26 @@
 class Default_ServiciosController extends Zend_Controller_Action
 {
 
-    public function init()
-    {
-        /* Initialize action controller here */
+    /**
+     * Redirector - defined for code completion
+     *
+     * @var Zend_Controller_Action_Helper_Redirector
+     */
+    protected $_redirector = null;
+
+    /**
+     * @var Doctrine\ORM\EntityManager
+     */
+    protected $_em = null;
+
+    public function init() {
+        $layout = Zend_Layout::getMvcInstance();
+        $layout->setLayout('layout');
+
+        $this->_doctrineContainer = Zend_Registry::get('doctrine');
+        $this->_em = $this->_doctrineContainer->getEntityManager();
+
+        $this->_redirector = $this->_helper->getHelper('Redirector');
     }
 
     public function indexAction()
@@ -43,6 +60,8 @@ class Default_ServiciosController extends Zend_Controller_Action
     public function colectivosAction()
     {
         $this->view->headTitle('Colectivos'); 
+        $query = $this->_em->createQuery("SELECT s FROM My\Entity\Seccion s WHERE s.titulo = 'Colectivos'");
+        $this->view->horarios = $query->getSingleResult()->getArchivos();
     }
 
     public function hospitalAction()

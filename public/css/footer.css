@@ -1,18 +1,25 @@
 
 @media(max-width: 480px){
-    .div_footer{
+    .div_footer > .row, .div_footer > .redes_sociales{
         height: 100% !important;
+        background-color: #444;
+        bottom: 0;
     }
 }
-.div_footer{
+.div_footer > .row, .div_footer > .redes_sociales{
     display: block;
-    height: 300px;
     background-color: #444;
     color: #d4d4d4;
     font-size: 12px;
     padding-left: 50px;
     padding-right: 50px;
+    bottom: 0;
 }
+
+#footer,.div_footer{
+    background-color: #444;
+}
+
 .contacto > p{
     margin-bottom: 5px !important;
 }
@@ -22,6 +29,7 @@
 }
 .redes_sociales>.iconos-redes{
     font-size: 5em !important;
+    background-color: #444 !important;
 }
 
 

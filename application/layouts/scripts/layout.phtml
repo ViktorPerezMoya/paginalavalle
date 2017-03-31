@@ -25,8 +25,8 @@
     <body>
         <header>
             <div id="cabecera" class="header">
-                <!--<img class="img_banner" src="<?php // echo $this->baseUrl()."/img/header/logo.png"        ?>">-->
-                <!--<embed class="banner_cuadrado" id="eplb9b4e0b48ac0a875f_embed" name="eplb9b4e0b48ac0a875f" src="<?php // echo $this->baseUrl()."/banner/banner_header.swf"        ?>" quality="autohigh" loop="true" allowscriptaccess="always" allowfullscreen="true" flashvars="clickTag=http%3A//ads.e-planning.net/ei/3/4cfd/HOME/INTERNOTA11%3Frnd%3D0.9425163103733212%26pb%3D9b4e0b48ac0a875f%26fi%3D9a75f13f3aa1096d" wmode="opaque" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="1366" height="115" border="0">-->
+                <!--<img class="img_banner" src="<?php // echo $this->baseUrl()."/img/header/logo.png"         ?>">-->
+                <!--<embed class="banner_cuadrado" id="eplb9b4e0b48ac0a875f_embed" name="eplb9b4e0b48ac0a875f" src="<?php // echo $this->baseUrl()."/banner/banner_header.swf"         ?>" quality="autohigh" loop="true" allowscriptaccess="always" allowfullscreen="true" flashvars="clickTag=http%3A//ads.e-planning.net/ei/3/4cfd/HOME/INTERNOTA11%3Frnd%3D0.9425163103733212%26pb%3D9b4e0b48ac0a875f%26fi%3D9a75f13f3aa1096d" wmode="opaque" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="1366" height="115" border="0">-->
                 <object class="banner_swf"type="application/x-shockwave-flash" width="1365" height="115" data="<?php echo $this->baseUrl() . "/banner/banner_header.swf" ?>"></object>
             </div>
             <div id="div_menu" class="div_menu">
@@ -53,7 +53,7 @@
                                 <li><a href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'areas-municipales')); ?>">Areas Municipales</a></li>
                                 <li><a href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'secretaria-de-obras-y-servicios-publicos')); ?>">Secretaría de Obras y Servicios Públicos</a></li>
                                 <li><a href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'concejo')); ?>">Honorable Concejo Deliberante</a></li>
-                                <!--<li><a href="<?php // echo $this->url(array('controller' => 'gobierno', 'action' => 'catastro')); ?>">Catastro</a></li>-->
+                                <!--<li><a href="<?php // echo $this->url(array('controller' => 'gobierno', 'action' => 'catastro'));  ?>">Catastro</a></li>-->
                             </ul>
                         </li>
                         <li><a href="#">Turismo</a>
@@ -82,11 +82,11 @@
                         <?php
                         if (Zend_Auth::getInstance()->getInstance()->getIdentity()) {
                             ?>
-                        <li style="float: right;"><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'bienvenido')); ?>"><?php echo 'Usuario: '.Zend_Auth::getInstance()->getIdentity()->getNombre(); ?></a></li>
+                            <li style="float: right;"><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'bienvenido')); ?>"><?php echo 'Usuario: ' . Zend_Auth::getInstance()->getIdentity()->getNombre(); ?></a></li>
                             <?php
-                        }else{
+                        } else {
                             ?>
-                        <li style="float: right;"><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login')); ?>">Iniciar Sesion</a></li>
+                            <li style="float: right;"><a href="<?php echo $this->url(array('controller' => 'auth', 'action' => 'login')); ?>">Iniciar Sesion</a></li>
                             <?php
                         }
                         ?>
@@ -103,8 +103,8 @@
             </div>
 
         </main>
-        <footer>
-            <!--<object class="banner_swf"type="application/x-shockwave-flash" width="1365" height="115" data="<?php // echo $this->baseUrl() . "/banner/banner_footer.swf"       ?>"></object>-->
+        <footer id="footer">
+            <!--<object class="banner_swf"type="application/x-shockwave-flash" width="1365" height="115" data="<?php // echo $this->baseUrl() . "/banner/banner_footer.swf"        ?>"></object>-->
             <div class="div_footer">
                 <div class="row">
                     <div class="col-md-3 contacto">
@@ -146,14 +146,15 @@
                 </div>
             </div>
         </footer>
-        <?php
-        echo $this->headScript()
-                //->appendFile($this->baseUrl() . '/js/jquery-1.11.3.js')
-                ->appendFile($this->baseUrl() . '/js/galeria_vendimia/blueimp-helper.js')
-                ->appendFile($this->baseUrl() . '/js/galeria_vendimia/blueimp-gallery.js')
-                ->appendFile($this->baseUrl() . '/js/galeria_vendimia/jquery.blueimp-gallery.js')
-                ->appendFile($this->baseUrl() . '/js/swiper.js')
-                ->appendFile($this->baseUrl() . '/js/script.js');
-        ?>
     </body>
 </html>
+
+<?php
+echo $this->headScript()
+        //->appendFile($this->baseUrl() . '/js/jquery-1.11.3.js')
+        ->appendFile($this->baseUrl() . '/js/galeria_vendimia/blueimp-helper.js')
+        ->appendFile($this->baseUrl() . '/js/galeria_vendimia/blueimp-gallery.js')
+        ->appendFile($this->baseUrl() . '/js/galeria_vendimia/jquery.blueimp-gallery.js')
+        ->appendFile($this->baseUrl() . '/js/swiper.js')
+        ->appendFile($this->baseUrl() . '/js/script.js');
+?>

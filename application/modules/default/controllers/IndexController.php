@@ -31,11 +31,11 @@ class Default_IndexController extends Zend_Controller_Action
         
         $this->view->headTitle('Municipalidad de Lavalle'); 
         
-        $query = $this->_em->createQuery("SELECT n FROM My\Entity\Noticia n WHERE n.mostrar = 1 AND n.imagenportada IS NOT NULL ORDER BY n.id DESC");
+        $query = $this->_em->createQuery("SELECT n FROM My\Entity\Noticia n WHERE n.mostrar = 1 AND n.imagenportada IS NOT NULL ORDER BY n.fecha DESC");
         $query->setMaxResults(10);
         $this->view->noticiasportada = $query->getResult();
         
-        $query2 = $this->_em->createQuery("SELECT n FROM My\Entity\Noticia n WHERE n.mostrar = 1 AND n.imagenportada IS NULL ORDER BY n.id DESC");
+        $query2 = $this->_em->createQuery("SELECT n FROM My\Entity\Noticia n WHERE n.mostrar = 1 ORDER BY n.fecha DESC");
         $query2->setMaxResults(20);
         $this->view->noticias = $query2->getResult();
         
