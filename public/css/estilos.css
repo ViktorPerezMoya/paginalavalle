@@ -24,9 +24,9 @@ body{
 }
 
 .imagen_noticias, .imagen_principal_seccion{
-    width: 100% ;
+/*    width: 100% ;
     height: 479px !important;
-    background: #333 !important;
+    background: #333 !important;*/
 }
 
 /* noticias secundarias */

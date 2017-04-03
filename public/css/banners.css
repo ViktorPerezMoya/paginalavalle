@@ -5,7 +5,8 @@
     width: 100%;
     height: 115px;
     display: block;
-    background-color: #1D53A2;
+    /*background-color: #1D53A2;*/
+    background-image: url(../img/head-vacio2.jpg); 
 }
 .img_banner{
     float: right;

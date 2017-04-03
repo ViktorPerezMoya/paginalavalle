@@ -3,16 +3,19 @@ $(document).ready(function () {
     var total = $("#cabecera").height() + $("#div_menu").height() + $("#main").height() + 300;
     $("footer").css({position: 'absolute',top: total+"px"});
 
-    if ($(window).width() <= 480) {
+    if ($(window).width() <= 800) {
         cargarSliderMobilesServicios();
         
         cambiarFooter();
+        
+        $("#cabecera").html("");
+        $("#cabecera").html('<div style="margin-left: 20px;"><img class="img-responsive" src="http://localhost/paginamuni/public/img/header/logo.png"/></div>');
     } 
     
 });
 
 $(window).resize(function (){
-    if ($(window).width() <= 480) {
+    if ($(window).width() <= 800) {
         cargarSliderMobilesServicios();
         
         cambiarFooter();
