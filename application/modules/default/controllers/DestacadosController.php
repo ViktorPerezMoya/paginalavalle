@@ -15,11 +15,13 @@ class Default_DestacadosController extends Zend_Controller_Action
 
     public function casaDeLaCulturaAction()
     {
+        $this->view->headTitle('Casa de la cultura'); 
         // action body
     }
 
     public function ventanillaUnicaAction()
     {
+        $this->view->headTitle('Ventanila Unica'); 
         // action body
     }
 

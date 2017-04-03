@@ -56,6 +56,7 @@ class Default_IndexController extends Zend_Controller_Action
     }
 
     public function sitioEnConstruccionAction(){
+        $this->view->headTitle('Sitio en construcción'); 
         
     }
     

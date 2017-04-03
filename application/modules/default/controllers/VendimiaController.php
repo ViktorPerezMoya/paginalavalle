@@ -27,6 +27,7 @@ class Default_VendimiaController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        $this->view->headTitle('Vendimia'); 
         $queryreina = $this->_em->createQuery('SELECT c FROM My\Entity\Candidata c WHERE c.reina = 1 AND c.estado = 0 ORDER BY c.periodo ASC');
         $reinas = $queryreina->getResult();
 
@@ -50,6 +51,7 @@ class Default_VendimiaController extends Zend_Controller_Action
 
     public function candidatasAction()
     {
+        $this->view->headTitle('Candidatas'); 
         $candidatas = $this->_em->getRepository('My\Entity\Candidata')->findBy(array('periodo' => date('Y'), 'estado' => false));
         $this->view->candidatas = $candidatas;
     }

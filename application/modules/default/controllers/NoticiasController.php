@@ -29,6 +29,7 @@ class Default_NoticiasController extends Zend_Controller_Action {
     }
 
     public function novedadesAction() {
+        $this->view->headTitle('Novedades'); 
         $query = $this->_em->createQuery("SELECT n FROM My\Entity\Noticia n ORDER BY n.id DESC");
         $query->setMaxResults(8);
         $nots = $query->getResult();
@@ -37,6 +38,7 @@ class Default_NoticiasController extends Zend_Controller_Action {
     }
 
     public function todasAction() {
+        $this->view->headTitle('Todas las Noticias'); 
 
         $query = $this->_em->createQuery("SELECT n FROM My\Entity\Noticia n ORDER BY n.id DESC");
         $query->setMaxResults(8);
@@ -46,13 +48,14 @@ class Default_NoticiasController extends Zend_Controller_Action {
     }
 
     public function crecemosAction() {
-        // action body
+        $this->view->headTitle('Revista Crecemos'); 
     }
 
     public function noticiaAction() {
 
         $id = $this->getParam('idnoticia');
         $noticia = $this->_em->find('My\Entity\Noticia', $id);
+        $this->view->headTitle($noticia->getTitulo()); 
         //var_dump($noticia);die();
         $this->view->noticia = $noticia;
     }

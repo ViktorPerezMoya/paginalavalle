@@ -19,6 +19,7 @@ class Default_Acuerdo3949Controller extends Zend_Controller_Action {
     }
 
     public function indexAction() {
+        $this->view->headTitle('Acuerdo 3949'); 
 //        $resultado = new My\Entity\DocumentoAcuerdo();
         $var = $this->getRequest()->getPost('acuerdo');
         $this->view->var = $var;

@@ -31,6 +31,7 @@ class Default_TurismoController extends Zend_Controller_Action
 
     public function sitiosAction()
     {
+        $this->view->headTitle('Sitios de Interes'); 
         $query = $this->_em->createQuery("SELECT s FROM My\Entity\Sitios s WHERE s.tipo = ?1");
         $query->setParameter(1, "sitios");
         
@@ -40,6 +41,7 @@ class Default_TurismoController extends Zend_Controller_Action
 
     public function alojamientoAction()
     {
+        $this->view->headTitle('Alojamientos'); 
         $query = $this->_em->createQuery("SELECT s FROM My\Entity\Sitios s WHERE s.tipo = ?1");
         $query->setParameter(1, "alojamiento");
         
@@ -49,6 +51,7 @@ class Default_TurismoController extends Zend_Controller_Action
 
     public function gastronomiaAction()
     {
+        $this->view->headTitle('Gastronomía'); 
         $query = $this->_em->createQuery("SELECT s FROM My\Entity\Sitios s WHERE s.tipo = ?1");
         $query->setParameter(1, "gastronomia");
         
@@ -58,12 +61,12 @@ class Default_TurismoController extends Zend_Controller_Action
 
     public function contactoInformesAction()
     {
-        // action body
+        $this->view->headTitle('Contacto'); 
     }
 
     public function agendaCulturalAction()
     {
-        // action body
+        $this->view->headTitle('Agenda Cultural'); 
     }
 
 

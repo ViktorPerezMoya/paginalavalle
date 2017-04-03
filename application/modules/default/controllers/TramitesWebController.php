@@ -29,10 +29,12 @@ class Default_TramitesWebController extends Zend_Controller_Action {
     }
 
     public function guiaAction() {
+        $this->view->headTitle('Guia de Tramites'); 
         // action body
     }
 
     public function licitacionesAction() {
+        $this->view->headTitle('Licitaciones'); 
         $query = $this->_em->createQuery("SELECT l FROM My\Entity\Licitacion l WHERE l.activo = ?1 ORDER BY l.id DESC");
         $query->setParameter(1, true);
         $licitaciones = $query->getResult();
@@ -41,6 +43,7 @@ class Default_TramitesWebController extends Zend_Controller_Action {
     }
 
     public function reclamosYSugerenciasAction() {
+        $this->view->headTitle('Reclamos y Sujerencias'); 
        
             
         $form = new Default_Form_Contacto();
@@ -84,6 +87,7 @@ class Default_TramitesWebController extends Zend_Controller_Action {
     
     public function licitacionPdfAction()
     {
+        $this->view->headTitle('Licitación'); 
         $this->_helper->layout()->disableLayout();
     	$id = $this->_getParam('id');
 

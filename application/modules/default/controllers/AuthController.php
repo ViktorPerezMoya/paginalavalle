@@ -51,6 +51,7 @@ class Default_AuthController extends Zend_Controller_Action {
     }
 
     public function cambiarClaveAction() {
+        $this->view->headTitle('Cambiar Clave'); 
         $form = new Administracion_Form_ClaveForm();
         $this->view->form = $form;
 

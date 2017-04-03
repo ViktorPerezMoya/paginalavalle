@@ -32,16 +32,17 @@ class Default_GobiernoController extends Zend_Controller_Action
 
     public function intendenciaAction()
     {
-        // action body
+        $this->view->headTitle('Intendencia'); 
     }
 
     public function asesoriaLegalAction()
     {
-        // action body
+        $this->view->headTitle('Asesoria Legal'); 
     }
 
     public function areasMunicipalesAction()
     {   
+        $this->view->headTitle('Areas Municipales'); 
         $query = $this->_em->createQuery("SELECT a FROM My\Entity\AreaMunicipal a WHERE a.activo = ?1 AND a.vista = 'areas'");
         $query->setParameter(1, true);
         $areas = $query->getResult();
@@ -50,6 +51,8 @@ class Default_GobiernoController extends Zend_Controller_Action
 
     public function secretariaDeObrasYServiciosPublicosAction()
     {
+        $this->view->headTitle('Secretaria de Obras y Servicios Públicos'); 
+
         $query = $this->_em->createQuery("SELECT o FROM My\Entity\Obra o WHERE o.activo = ?1");
         $query->setParameter(1,true);
         $obras = $query->getResult();
@@ -63,6 +66,7 @@ class Default_GobiernoController extends Zend_Controller_Action
 
     public function concejoAction()
     {
+        $this->view->headTitle('Consejo'); 
         $query = $this->_em->createQuery("SELECT c FROM My\Entity\ProyectoHCD c WHERE c.tipo = ?1");
         $query->setParameter(1,"Declaracion");
         $this->view->declaraciones = $query->getResult();

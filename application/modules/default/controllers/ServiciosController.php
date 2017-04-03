@@ -32,22 +32,22 @@ class Default_ServiciosController extends Zend_Controller_Action
 
     public function jardinesMaternalesAction()
     {
-        // action body
+        $this->view->headTitle('Jardines Maternales'); 
     }
 
     public function delegacionesAction()
     {
-        // action body
+        $this->view->headTitle('Delegaciones'); 
     }
 
     public function cdrAction()
     {
-        // action body
+        $this->view->headTitle('C.D.R.'); 
     }
 
     public function bibliotecaPublicaAction()
     {
-        // action body
+        $this->view->headTitle('Biblioteca Publica'); 
     }
     
     //otros servicios
@@ -66,12 +66,12 @@ class Default_ServiciosController extends Zend_Controller_Action
 
     public function hospitalAction()
     {
-        // action body
+        $this->view->headTitle('Hospital'); 
     }
 
     public function educacionAction()
     {
-        // action body
+        $this->view->headTitle('Educación'); 
     }
 
     public function acuerdo3949Action()
@@ -81,30 +81,36 @@ class Default_ServiciosController extends Zend_Controller_Action
 
     public function familiaAction()
     {
-        // action body
+        $this->view->headTitle('Familia'); 
     }
     
     public function viviendaAction(){
+        $this->view->headTitle('Vivienda'); 
         
     }
     
     public function cicAction(){
+        $this->view->headTitle('C.I.C.'); 
         
     }
 
     public function desarrolloHumanoAction(){
+        $this->view->headTitle('Desarrollo Humano'); 
         
     }
     
     public function culturaAction(){
+        $this->view->headTitle('Cultura'); 
         
     }
     
     public function ventanillaUnicaAction(){
+        $this->view->headTitle('Ventanilla Única'); 
         
     }
     
     public function farmaciasAction(){
+        $this->view->headTitle('Farmacias'); 
         
     }
 }
