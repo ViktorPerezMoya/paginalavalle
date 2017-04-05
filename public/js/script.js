@@ -1,32 +1,46 @@
 $(document).ready(function () {
 
-    var total = $("#cabecera").height() + $("#div_menu").height() + $("#main").height() + 300;
-    $("footer").css({position: 'absolute',top: total+"px"});
 
     if ($(window).width() <= 800) {
         cargarSliderMobilesServicios();
-        
+
         cambiarFooter();
-        
+
         $("#cabecera").html("");
         $("#cabecera").html('<div style="margin-left: 20px;"><img class="img-responsive" src="http://localhost/paginamuni/public/img/header/logo.png"/></div>');
-    } 
-    
+        $(".descripcion_notp").hide();
+        $(".titul-noticia").css({"font-size": "18px"});
+        $("#list_indicadores").hide();
+
+        /*ubicacion*/
+        $("#portada_seccion").removeClass("carousel-caption").css({"text-align": "justify", "margin": "1px 50px"});
+
+        /*intendencia*/
+        $("#descripcion-intendente").removeClass("descripcion-intendente");
+        $("#descripcion-asesoria").removeClass("descripcion-asesoria");
+        $("#descripcion-asesoria").css({"margin-top":" 50px"});
+        /*menu */
+         var total = $("#cabecera").height()  + $("#main").height() + 300;
+         $("footer").css({position: 'absolute',top: total+"px"});
+    } else {
+
+        var total = $("#cabecera").height() + $("#div_menu").height() + $("#main").height() + 300;
+        $("footer").css({position: 'absolute', top: total + "px"});
+    }
+
 });
 
-$(window).resize(function (){
+$(window).resize(function () {
     if ($(window).width() <= 800) {
-        cargarSliderMobilesServicios();
-        
-        cambiarFooter();
-    } 
+        location.reload();
+    }
 });
 
-function cambiarFooter(){
+function cambiarFooter() {
     var position = $("#footer").position();
     var position2 = $(".redes_sociales").position();
     var tamanio = position2.bottom - position.top;
-    $("#footer").css("height",tamanio+"px !important");
+    $("#footer").css("height", tamanio + "px !important");
 }
 
 function cargarSliderMobilesServicios() {
@@ -91,13 +105,13 @@ function cargarSliderMobilesServicios() {
             '<a href="http://localhost/paginamuni/public/servicios/desarrollo-humano"><i class="fa fa-handshake-o a-servicos" aria-hidden="true"></i></a><p class="data-serv">Desarrollo Humano</p>' +
             '</div>' +
             '</div>' +
-            '</div>'+
-          '<a class="left carousel-control" href="#carousel-servicios" role="button" data-slide="prev" style="background: white;width: 10%;">' +
+            '</div>' +
+            '<a class="left carousel-control" href="#carousel-servicios" role="button" data-slide="prev" style="background: white;width: 10%;">' +
             '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="color: orange;"></span>' +
             '<span class="sr-only">Previous</span>' +
-          '</a>' +
-          '<a class="right carousel-control" href="#carousel-servicios" role="button" data-slide="next" style="background: white;width: 10%;">' +
+            '</a>' +
+            '<a class="right carousel-control" href="#carousel-servicios" role="button" data-slide="next" style="background: white;width: 10%;">' +
             '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color: orange;"></span>' +
             '<span class="sr-only">Next</span>' +
-          '</a>');
+            '</a>');
 }

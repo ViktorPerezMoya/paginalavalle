@@ -1,6 +1,10 @@
 .div_menu{
     background: #3D7CC4;
 }
+
+.div_menu > label{
+    margin-bottom: 0;
+}
 #btn-menu{
     display: none;/*se oculta el check box*/
 }
@@ -39,6 +43,7 @@ header > div > label:hover{
     padding: 15px 20px;
     color: #fff;
     text-decoration: none;/* caca el sibrayado*/
+    z-index: 16;
 }
 
 .menu > ul > li{

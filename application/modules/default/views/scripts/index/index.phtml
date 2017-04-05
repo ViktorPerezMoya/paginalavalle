@@ -3,9 +3,9 @@ $noticias = $this->noticiasportada;
 ?>
 
 <div class="noticias_principales">
-    <div id="carousel-noticias-principales" class="carousel slide" data-ride="carousel">
+    <div id="carousel-noticias-principales" class="carousel slide" data-ride="carousel" style="">
         <!-- Indicators -->
-        <ol class="carousel-indicators" style="bottom: 5px;">
+        <ol id="list_indicadores" class="carousel-indicators" style="bottom: 5px;">
             <?php
             $contador = 0;
             $primero = true;
@@ -40,7 +40,7 @@ $noticias = $this->noticiasportada;
                         <a href="<?php echo $this->url(array('controller' => 'noticias', 'action' => 'noticia', 'idnoticia' => $n->getId())); ?>"><center><img src="<?php echo $this->baseUrl() . '/img/noticias/portada/' . $n->getImagenportada(); ?>" alt="..." class="imagen_noticias"></center></a>
                         <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); padding-left: 20%; padding-right: 20%;width: 100%;left: 0;bottom: 0;">
 
-                            <h2><?php echo $n->getTitulo(); ?></h2>
+                            <h2 class="titul-noticia"><?php echo $n->getTitulo(); ?></h2>
                             <p class="descripcion_notp">
                                 <?php echo $n->getCopete(); ?>
                             </p>
@@ -52,7 +52,7 @@ $noticias = $this->noticiasportada;
                     <div class="item">
                         <a href="<?php echo $this->url(array('controller' => 'noticias', 'action' => 'noticia', 'idnoticia' => $n->getId())); ?>"><center><img src="<?php echo $this->baseUrl() . '/img/noticias/portada/' . $n->getImagenportada(); ?>" alt="..." class="imagen_noticias"></center></a>
                         <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); padding-left: 20%; padding-right: 20%;width: 100%;left: 0;bottom: 0;">
-                            <h2><?php echo $n->getTitulo(); ?></h2>
+                            <h2 class="titul-noticia"><?php echo $n->getTitulo(); ?></h2>
                             <p class="descripcion_notp">
                                 <?php echo $n->getCopete(); ?>
                             </p>

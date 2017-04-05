@@ -6,13 +6,14 @@
         bottom: 0;
     }
 }
-.div_footer > .row, .div_footer > .redes_sociales{
+.div_footer > .div_contacto_footer, .div_footer > .redes_sociales{
     display: block;
     background-color: #444;
     color: #d4d4d4;
     font-size: 12px;
     padding-left: 50px;
     padding-right: 50px;
+    padding-top: 20px;
     bottom: 0;
 }
 

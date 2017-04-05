@@ -23,10 +23,16 @@ body{
     margin-right: 0px !important;
 }
 
-.imagen_noticias, .imagen_principal_seccion{
+.imagen_noticias{
 /*    width: 100% ;
     height: 479px !important;
     background: #333 !important;*/
+}
+
+.imagen_principal_seccion{
+    width: 100% ;
+    /*height: 479px !important;*/
+    background: #333 !important;
 }
 
 /* noticias secundarias */
@@ -206,11 +212,11 @@ div.lista-descarga{
     border-radius: 50% !important;
 }
 
-#descripcion-intendente{
+.descripcion-intendente{
     text-align: left;
     width: 60%;
 }
-#descripcion-asesoria{
+.descripcion-asesoria{
     text-align: left !important;
     width: 60% !important;
     margin-top: 50px;

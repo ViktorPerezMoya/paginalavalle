@@ -22,11 +22,11 @@
                 <?php
                 $declaraciones = $this->declaraciones;
                 $arch = new My\Entity\ProyectoHCD();
-                foreach ($declaraciones as $arch){
+                foreach ($declaraciones as $arch) {
                     ?>
                     <div class="media archivos-hcd">
                         <div class="media-left">
-                            <a href="<?php echo $this->baseUrl().'/pdf/proyectohcd/'.$arch->getDocumento(); ?>" target="_blank">
+                            <a href="<?php echo $this->baseUrl() . '/pdf/proyectohcd/' . $arch->getDocumento(); ?>" target="_blank">
                                 <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -42,11 +42,11 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="tab-ordenanzas" style="height: 700px;overflow: scroll;">
                 <?php
-                foreach ($this->ordenanzas as $arch){
+                foreach ($this->ordenanzas as $arch) {
                     ?>
                     <div class="media archivos-hcd">
                         <div class="media-left">
-                            <a href="<?php echo $this->baseUrl().'/pdf/proyectohcd/'.$arch->getDocumento(); ?>" target="_blank">
+                            <a href="<?php echo $this->baseUrl() . '/pdf/proyectohcd/' . $arch->getDocumento(); ?>" target="_blank">
                                 <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -61,11 +61,11 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="tab-resoluciones" style="height: 700px;overflow: scroll;">
                 <?php
-                foreach ($this->resoluciones as $arch){
+                foreach ($this->resoluciones as $arch) {
                     ?>
                     <div class="media archivos-hcd">
                         <div class="media-left">
-                            <a href="<?php echo $this->baseUrl().'/pdf/proyectohcd/'.$arch->getDocumento(); ?>" target="_blank">
+                            <a href="<?php echo $this->baseUrl() . '/pdf/proyectohcd/' . $arch->getDocumento(); ?>" target="_blank">
                                 <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -80,11 +80,11 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="tab-ordenanzatarifaria" style="height: 700px;overflow: scroll;">
                 <?php
-                foreach ($this->ordTarifarias as $arch){
+                foreach ($this->ordTarifarias as $arch) {
                     ?>
                     <div class="media archivos-hcd">
                         <div class="media-left">
-                            <a href="<?php echo $this->baseUrl().'/pdf/proyectohcd/'.$arch->getDocumento(); ?>" target="_blank">
+                            <a href="<?php echo $this->baseUrl() . '/pdf/proyectohcd/' . $arch->getDocumento(); ?>" target="_blank">
                                 <i class="fa fa-file-pdf-o fa-5x" aria-hidden="true"></i>
                             </a>
                         </div>
