@@ -35,6 +35,17 @@ class Administracion_GobiernoController extends Zend_Controller_Action {
         $this->view->areas = $areas;
     }
 
+    public function getAreasAction(){
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();
+      
+      $tipo = $this->getParam('tipo');
+      $modelModelo = new Administracion_Model_AreasTable();
+      $results = $modelModelo->getAreas($tipo);
+      $this->_helper->json($results);
+    }
+
+
     public function nuevaAreaAction() {
         $form = new Administracion_Form_AreaMunicipalForm();
         $this->view->form = $form;
@@ -52,6 +63,8 @@ class Administracion_GobiernoController extends Zend_Controller_Action {
                     $area->setTelefono($form->telefono->getValue());
                     $area->setFunciones($form->funciones->getValue());
                     $area->setActivo(true);
+                    $area->setTipo($form->tipo->getValue());
+                    $area->setAreasuperior($form->dependede->getValue());
                     $area->setVista("areas");
 
                     $this->_em->merge($area);
@@ -79,6 +92,8 @@ class Administracion_GobiernoController extends Zend_Controller_Action {
         $form->direccion->setValue($area->getDireccion());
         $form->telefono->setValue($area->getTelefono());
         $form->funciones->setValue($area->getFunciones());
+        $form->tipo->setValue($area->getTipo());
+        $form->dependede->setValue($area->getAreasuperior());
 
         $this->view->form = $form;
 
@@ -94,6 +109,8 @@ class Administracion_GobiernoController extends Zend_Controller_Action {
                     $area->setDireccion($form->direccion->getValue());
                     $area->setTelefono($form->telefono->getValue());
                     $area->setFunciones($form->funciones->getValue());
+                    $area->setTipo($form->tipo->getValue());
+                    $area->setAreasuperior($form->dependede->getValue());
                     $area->setActivo(true);
 
                     $this->_em->merge($area);

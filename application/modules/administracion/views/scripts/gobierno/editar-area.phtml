@@ -3,6 +3,35 @@
 </div>
 <div style="display: flex;justify-content: center;align-items: center;" >
     <div class="panel panel-default col-md-6">
-         <?php echo $this->form; ?>
+        <?php echo $this->form; ?>
+    </div>
 </div>
-</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#tipo').change(function () {
+            var ajax = $.ajax({
+                type: "GET",
+                url: "/paginamuni/public/administracion/gobierno/get-areas/tipo/" + $(this).val(),
+                async: true,
+                dataType: "json",
+                beforeSend: function (x) {
+                    if (x && x.overrideMimeType) {
+                        x.overrideMimeType("application/j-son;charset=UTF-8");
+                    }
+                },
+                success: function (data) {
+                    $('#dependede').html('<option value="0">Seleccione...</option>');
+                    var options = '<option value="0">Seleccione...</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        options += '<option value="' + data[i].id + '">' + data[i].titulo + '</option>';
+                    }
+                    $('#dependede').html(options);
+                }
+
+
+            });
+        });
+    });
+</script>

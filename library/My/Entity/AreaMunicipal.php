@@ -65,6 +65,20 @@ class AreaMunicipal {
     
     /**
      * 
+     * @var string
+     * @Column(type="string", nullable=true)
+     */
+    private $tipo;
+    
+    /**
+     * 
+     * @var integer
+     * @Column(type="integer", nullable=true)
+     */
+    private $areasuperior;
+    
+    /**
+     * 
      * @var boolean
      * @Column(type="boolean", nullable=true)
      */
@@ -144,5 +158,21 @@ class AreaMunicipal {
     function getVista(){
         return $this->vista;
     }
+    function getTipo() {
+        return $this->tipo;
+    }
+
+    function getAreasuperior() {
+        return $this->areasuperior;
+    }
+
+    function setTipo($tipo) {
+        $this->tipo = $tipo;
+    }
+
+    function setAreasuperior($areasuperior) {
+        $this->areasuperior = $areasuperior;
+    }
+
 
 }

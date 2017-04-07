@@ -8,16 +8,19 @@ $areas = $this->areas;
 </div>
 
 <div id="div-padre" style="display: flex;justify-content: center;align-items: center;">
-    <div id="div-hijo" class="col-md-8">
+    <div id="div-hijo" class="col-md-10">
         <a class="btn btn-info" style="float: right;" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'nueva-area')); ?>">Neuva Area</a>
         <table class="table table-hover table-striped table-responsive">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Titulo</th>
                     <th>A cargo de</th>
                     <th>Cargo anterior</th>
                     <th>Dirección</th>
                     <th>Telefonos</th>
+                    <th>Tipo</th>
+                    <th>Area superior</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -27,11 +30,14 @@ $areas = $this->areas;
                 foreach ($areas as $a):
                     ?>
                     <tr>
+                        <td><?php echo $a->getId();?></td>
                         <td><?php echo $a->getTitulo(); ?></td>
                         <td><?php echo $a->getAcargode(); ?></td>
                         <td><?php echo $a->getCargoanterior(); ?></td>
                         <td><?php echo $a->getDireccion(); ?></td>
                         <td><?php echo $a->getTelefono(); ?></td>
+                        <td><?php echo $a->getTipo(); ?></td>
+                        <td><?php echo $a->getAreasuperior(); ?></td>
                         <td>
                             <a class="btn btn-success btn-sm" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'editar-area', 'id' => $a->getId())); ?>">Editar</a>
                             <a class="btn btn-danger btn-sm" href="<?php echo $this->url(array('controller' => 'gobierno', 'action' => 'borrar-area', 'id' => $a->getId())); ?>">Eliminar</a>

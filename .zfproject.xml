@@ -332,6 +332,7 @@
           </layoutsDirectory>
           <modelsDirectory>
             <modelFile modelName="Candidata"/>
+            <modelFile modelName="AreasTable"/>
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
           <viewsDirectory>

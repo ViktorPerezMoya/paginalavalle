@@ -102,7 +102,7 @@ $ultimoele = $this->ultimo;
 
     function ejecutar(ultimoid,accion) {
         var request = $.ajax({
-            url: "http://localhost/paginamuni/public/noticias/mas-noticias/ultimoid/" + ultimoid + "/accion/" + accion,
+            url: "/paginamuni/public/noticias/mas-noticias/ultimoid/" + ultimoid + "/accion/" + accion,
             method: "GET",
             dataType: "html"
         });
