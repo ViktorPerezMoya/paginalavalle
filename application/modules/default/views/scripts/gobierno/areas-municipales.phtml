@@ -1,82 +1,185 @@
-<div class="contenedor">
-    <div class="row">
-    <?php 
-    $areas = $this->areas;
-    $a = new My\Entity\AreaMunicipal();
-    foreach ($areas as $a) {
-        ?>
-        <div class="col-md-2 col-sm-4">
-            <div class="anime">
-                <div class="anime--flip">
-                    <div class="anime--flip__flipper">
-                        <div class="anime--flip__front">
-                            <div clas="front">
-                                <h3><?php echo $a->getTitulo(); ?></h3>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<div class="contenedor" style="display: flex; align-content: center; align-items: center;">
+    <div class="col-md-12" id="divsecretarias">
+        <?php
+        $areas = $this->areas;
+        $a = new My\Entity\AreaMunicipal();
+        foreach ($areas as $a) {
+            ?>
+            <div class="col-md-6 col-sm-4">
+                <div class="anime">
+                    <div class="anime--flip">
+                        <div class="anime--flip__flipper">
+                            <div class="anime--flip__front front-blue">
+                                <div clas="front">
+                                    <h3><?php echo $a->getTitulo(); ?></h3>
+                                </div>
                             </div>
-                        </div>
-                        <div class="anime--flip__back">
-                            <div class="back">
-                                <p><?php echo 'A cargo de : '.$a->getAcargode(); ?></p>
-                                <p>Dirección: <?php echo $a->getDireccion(); ?></p>
-                                <p>Contacto: <?php echo $a->getTelefono(); ?></p>
-                                <center><a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-<?php echo $a->getId(); ?>">Ver más</a></center>
+                            <div class="anime--flip__back">
+                                <div class="back" style="margin-top: 20px;font-size: 1.3em;">
+                                    <p><?php echo 'A cargo de : ' . $a->getAcargode(); ?></p>
+                                    <p>Dirección: <?php echo $a->getDireccion(); ?></p>
+                                    <p>Contacto: <?php echo $a->getTelefono(); ?></p>
+                                    <center>
+                                        <!--<a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-<?php // echo $a->getId(); ?>">Ver más</a>-->
+                                        <button id="btn-secretaria-<?php echo $a->getId(); ?>" onclick="mostrarOficinasDependientes(<?php echo $a->getId(); ?>, 'orange', 'direccion')" class="btn btn-primary btn-sm">Oficinas Dependientes</button>
+                                    </center>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <?php
-    }
-    ?>
+            <?php
+        }
+        ?>
 
-        
+
+    </div>
+</div>
+<div class="row">
+    <div id="divdirecciones">
+        <!-- aqui iran la direcciones dependeintes de cada secretaria-->
+    </div>
+</div>
+<div class="row">
+    <div id="divjefaturas">
+        <!-- aqui iran la direcciones dependeintes de cada secretaria-->
     </div>
 </div>
 
 
 
 <!-- Modal -->
-<?php 
-    foreach ($areas as $a) {
-        ?>
-        <div class="modal fade" id="modal-<?php echo $a->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel"><?php echo $a->getTitulo(); ?></h4>
-                    </div>
-                    <div class="modal-body">
-                            <p><strong>A cargo de:</strong> <?php echo $a->getAcargode(); ?></p>
-                            <p><strong>Dirección:</strong> <?php echo $a->getDireccion();?></p>
-                            <p><strong>Contacto:</strong> <?php echo $a->getTelefono(); ?></p>
-                        <div class="panel panel-primary">
-                            <!-- Default panel contents -->
-                            <div class="panel-heading">
-                                Funciones
-                            </div>
-
-                            <!-- List group -->
-                            <ul class="list-group">
-                                <?php 
-                                $lista = explode(";", $a->getFunciones());
-                                foreach ($lista as $f) {
-                                    ?>
-                                    <li class="list-group-item"><?php echo $f; ?></li>
-                                    <?php
-                                }
-                                ?>
-                                
-                            </ul>
+<?php
+foreach ($areas as $a) {
+    ?>
+    <div class="modal fade" id="modal-<?php echo $a->getId(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><?php echo $a->getTitulo(); ?></h4>
+                </div>
+                <div class="modal-body">
+                    <p><strong>A cargo de:</strong> <?php echo $a->getAcargode(); ?></p>
+                    <p><strong>Domicilio:</strong> <?php echo $a->getDireccion(); ?></p>
+                    <p><strong>Contacto:</strong> <?php echo $a->getTelefono(); ?></p>
+<!--                    <div class="panel panel-primary">
+                         Default panel contents 
+                        <div class="panel-heading">
+                            Funciones
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    </div>
+
+                         List group 
+                        <ul class="list-group">
+                            <?php
+//                            $lista = explode(";", $a->getFunciones());
+//                            foreach ($lista as $f) {
+//                                ?>
+                                <li class="list-group-item">//<?php // echo $f; ?></li>
+                                //<?php
+//                            }
+                            ?>
+
+                        </ul>
+                    </div>-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
-        <?php
-    }
+    </div>
+    <?php
+}
 ?>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        document.querySelector('#divsecretarias').classList.add('animated', 'bounceInLeft');
+
+    });
+
+    function mostrarOficinasDependientes(idPadre, color, tipohijo) {
+
+        document.querySelector("#divdirecciones").classList.remove("bounceInRight");
+
+        var ajax = $.ajax({
+            type: "GET",
+            url: "/paginamuni/public/gobierno/oficinas-hijo/id/" + idPadre,
+//            data: {id: idPadre},
+            async: true,
+            dataType: "html"
+        });
+
+        ajax.done(function (data) {
+            var json = JSON.parse(data);
+
+            var contenido = "";
+
+            for (var i = 0; i < json.length; i++) {
+                contenido += '<div class="col-md-3 col-sm-4"><div class="anime">\n\
+                        <div class="anime--flip">\n\
+                        <div class="anime--flip__flipper">\n\
+                            <div class="anime--flip__front front-' + color + '">\n\
+                                <div clas="front">\n\
+                                    <h3>' + json[i]['titulo'] + '</h3>\n\
+                                </div>\n\
+                            </div>\n\
+                            <div class="anime--flip__back">\n\
+                                <div class="back" style="margin-top: 20px; margin-left:10px;margin-right:10px;font-size: 1.2em;">\n\
+                                    <p>A cargo de : ' + json[i]['acargode'] + '</p>\n\
+                                    <p>Domicilio: ' + json[i]['direccion'] + '</p>\n\
+                                    <p>Contacto: ' + json[i]['telefono'] + '</p>\n\
+                                </div>\n\
+                            </div>\n\
+                        </div>\n\
+                    </div>\n\
+                </div></div>';
+            }
+            switch (tipohijo) {
+                case "direccion":
+                    $("#divdirecciones").hide();
+                    $("#divdirecciones").html(contenido);
+                    document.querySelector('#divdirecciones').classList.add('animated', 'bounceInRight');
+                    $("#divdirecciones").show();
+
+                    break;
+//                case "jefatura":
+//                    $("#divjefaturas").hide();
+//                    $("#divjefaturas").html(contenido);
+//                    document.querySelector('#divjefaturas').classList.add('animated', 'bounceInUp');
+//                    $("#divjefaturas").show();
+//
+//                    break;
+            }
+
+            //$("#divdirecciones").html(json[0]['titulo']);
+            positionFooter();
+        });
+        ajax.fail(function (jqXHR, textStatus) {
+            alert("Request failed: " + textStatus);
+        });
+    }
+
+    function positionFooter() {
+
+        footerHeight = $("#footer").height();
+        footerTop = ($(window).scrollTop() + $(window).height() - footerHeight) + "px";
+
+        if (($(document.body).height() + footerHeight) < $(window).height()) {
+            $("#footer").css({
+                position: "absolute"
+            }).animate({
+                top: 0
+            });
+        } else {
+            $("#footer").css({
+                marginTop: "200px",
+                position: "static"
+            });
+        }
+
+    }
+</script>

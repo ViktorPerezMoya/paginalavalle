@@ -343,9 +343,19 @@ div.lista-descarga{
     flex-direction: column;
     color: white;
     height: 200px;
-    background-color: #1D53A2;
     box-shadow: 4px 4px 5px #999;
 }
+
+.front-blue{
+    background-color: #1D53A2;
+}
+.front-orange{
+    background-color: #ef6f1b;
+}
+.front-green{
+    background-color: #66A63C;
+}
+
 .anime--flip__back{
     color: white;
     height: 200px;

@@ -1,7 +1,6 @@
 <?php
 
-class Default_GobiernoController extends Zend_Controller_Action
-{
+class Default_GobiernoController extends Zend_Controller_Action {
 
     /**
      * Redirector - defined for code completion
@@ -25,36 +24,31 @@ class Default_GobiernoController extends Zend_Controller_Action
         $this->_redirector = $this->_helper->getHelper('Redirector');
     }
 
-    public function indexAction()
-    {
+    public function indexAction() {
         // action body
     }
 
-    public function intendenciaAction()
-    {
-        $this->view->headTitle('Intendencia'); 
+    public function intendenciaAction() {
+        $this->view->headTitle('Intendencia');
     }
 
-    public function asesoriaLegalAction()
-    {
-        $this->view->headTitle('Asesoria Legal'); 
+    public function asesoriaLegalAction() {
+        $this->view->headTitle('Asesoria Legal');
     }
 
-    public function areasMunicipalesAction()
-    {   
-        $this->view->headTitle('Areas Municipales'); 
-        $query = $this->_em->createQuery("SELECT a FROM My\Entity\AreaMunicipal a WHERE a.activo = ?1 AND a.vista = 'areas'");
+    public function areasMunicipalesAction() {
+        $this->view->headTitle('Areas Municipales');
+        $query = $this->_em->createQuery("SELECT a FROM My\Entity\AreaMunicipal a WHERE a.activo = ?1 AND a.vista = 'areas' AND a.tipo = 'Secretaria'");
         $query->setParameter(1, true);
         $areas = $query->getResult();
         $this->view->areas = $areas;
     }
 
-    public function secretariaDeObrasYServiciosPublicosAction()
-    {
-        $this->view->headTitle('Secretaria de Obras y Servicios Públicos'); 
+    public function secretariaDeObrasYServiciosPublicosAction() {
+        $this->view->headTitle('Secretaria de Obras y Servicios Públicos');
 
         $query = $this->_em->createQuery("SELECT o FROM My\Entity\Obra o WHERE o.activo = ?1");
-        $query->setParameter(1,true);
+        $query->setParameter(1, true);
         $obras = $query->getResult();
         $this->view->obras = $obras;
 
@@ -64,33 +58,33 @@ class Default_GobiernoController extends Zend_Controller_Action
         $this->view->direcciones = $direcciones;
     }
 
-    public function concejoAction()
-    {
-        $this->view->headTitle('Consejo'); 
+    public function concejoAction() {
+        $this->view->headTitle('Consejo');
         $query = $this->_em->createQuery("SELECT c FROM My\Entity\ProyectoHCD c WHERE c.tipo = ?1");
-        $query->setParameter(1,"Declaracion");
+        $query->setParameter(1, "Declaracion");
         $this->view->declaraciones = $query->getResult();
 
-        $query->setParameter(1,"Ordenanza");
-        $this->view->ordenanzas = $query->getResult(); 
+        $query->setParameter(1, "Ordenanza");
+        $this->view->ordenanzas = $query->getResult();
 
-        $query->setParameter(1,"Ordenanza Tarifaria");
+        $query->setParameter(1, "Ordenanza Tarifaria");
         $this->view->ordTarifarias = $query->getResult();
 
-        $query->setParameter(1,"Resolucion");
-        $this->view->resoluciones = $query->getResult();       
+        $query->setParameter(1, "Resolucion");
+        $this->view->resoluciones = $query->getResult();
     }
 
+    public function oficinasHijoAction() {
+//        $this->_helper->layout->disableLayout();
+//        $this->_helper->viewRenderer->setNoRender();
+
+        $idare = $this->getParam('id');
+        $query = $this->_em->createQuery("SELECT o FROM My\Entity\AreaMunicipal o WHERE o.areasuperior = ?1");
+        $query->setParameter(1, $idare);
+
+        $results = $query->getArrayResult();
+        
+        $this->_helper->json($results);
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
