@@ -342,7 +342,9 @@ div.lista-descarga{
     text-align: center;
     flex-direction: column;
     color: white;
-    height: 200px;
+    height: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
     box-shadow: 4px 4px 5px #999;
 }
 

@@ -30,7 +30,7 @@ class Default_NoticiasController extends Zend_Controller_Action {
 
     public function novedadesAction() {
         $this->view->headTitle('Novedades'); 
-        $query = $this->_em->createQuery("SELECT n FROM My\Entity\Noticia n ORDER BY n.id DESC");
+        $query = $this->_em->createQuery("SELECT n FROM My\Entity\Noticia n ORDER BY n.fecha DESC");
         $query->setMaxResults(8);
         $nots = $query->getResult();
 
@@ -40,7 +40,7 @@ class Default_NoticiasController extends Zend_Controller_Action {
     public function todasAction() {
         $this->view->headTitle('Todas las Noticias'); 
 
-        $query = $this->_em->createQuery("SELECT n FROM My\Entity\Noticia n ORDER BY n.id DESC");
+        $query = $this->_em->createQuery("SELECT n FROM My\Entity\Noticia n ORDER BY n.fecha DESC");
         $query->setMaxResults(8);
         $nots = $query->getResult();
 

@@ -2,7 +2,7 @@
 $noticias = $this->noticiasportada;
 ?>
 
-<div class="noticias_principales">
+<div class="noticias_principales" id="noticiasprincipales">
     <div id="carousel-noticias-principales" class="carousel slide" data-ride="carousel" style="">
         <!-- Indicators -->
         <ol id="list_indicadores" class="carousel-indicators" style="bottom: 5px;">
@@ -80,7 +80,7 @@ $noticias = $this->noticiasportada;
 </div>
 <!-- INICIO DE NOTICIAS CECUNDARIAS  -->
 
-<div class="contenedor">
+<div class="contenedor" id="noticiassecundarias">
 
     <div class="not_secundarias_intro">
         <h1>Noticias de interés social</h1>
@@ -159,7 +159,7 @@ $noticias = $this->noticiasportada;
 </div>
 <!-- EXPERIMENTO  SLDER -->
 
-<div class="contenedor slider_inf">
+<div class="contenedor slider_inf" id="sliderexperimento">
     <div class="titulo_servicios">
         <h1>Servicios</h1>
     </div>
@@ -225,48 +225,12 @@ $noticias = $this->noticiasportada;
 
     </div>
 
-    <!--<div class="swiper-container swiper-container-servicio"  id="slider_servicios">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide swiper-slide-servicio">
-                <div class="icono-servicio">
-                    <a href="#"><i class="fa fa-phone " aria-hidden="true"></i></a>
-                </div>
-                <div class="icono-servicio">
-                    <a href="#"><i class="fa fa-envelope-o " aria-hidden="true"></i></a>
-                </div>
-                <div class="icono-servicio">
-                    <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i></a>
-                </div>
-                <div class="icono-servicio">
-                    <a href="#"><i class="fa fa-bus" aria-hidden="true"></i></a>
-                </div>
-            </div>
-            <div class="swiper-slide swiper-slide-servicio">
-                <div class="icono-servicio">
-                    <a href="#"><i class="fa fa-hospital-o" aria-hidden="true"></i></a>
-                </div>
-                <div class="icono-servicio">
-                    <a href="#"><i class="fa fa-camera-retro" aria-hidden="true"></i></a>
-                </div>
-                <div class="icono-servicio">
-                    <a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i></a>
-                </div>
-                <div class="icono-servicio">
-                    <a href="#"><i class="fa fa-paperclip" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-    <!-- Add Arrows 
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-</div>-->
-
 
     <!-- Initialize Swiper -->
 </div>
 
 <!-- LINK Y SECCIONES -->
-<div class="contenedor links-secciones">
+<div class="contenedor links-secciones" id="divservicios">
     <h1>Links y Secciones</h1>
     <div class="row">
         <div class="col-sm-6 col-md-4">
@@ -305,7 +269,7 @@ $noticias = $this->noticiasportada;
     </div>
 </div>
 
-<div class="contenedor videos">
+<div class="contenedor videos" id="divvideos">
     <div class="titulo-videos">
         <h1>Nuestro canal <i class="fa fa-youtube-play" aria-hidden="true"></i> </h1>
     </div>
@@ -331,3 +295,15 @@ $noticias = $this->noticiasportada;
 
     </div>
 </div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        document.querySelector('#noticiassecundarias').classList.add('animated', 'bounceInRight');
+        document.querySelector('#sliderexperimento').classList.add('animated', 'flipInY');
+        document.querySelector('#divservicios').classList.add('animated', 'fadeInLeftBig');
+        document.querySelector('#divvideos').classList.add('animated', 'fadeInRightBig');
+
+    });    
+</script>

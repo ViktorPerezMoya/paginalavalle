@@ -53,6 +53,14 @@ class AreaMunicipal {
      * @var string
      * @Column(type="string", nullable=true)
      */
+    private $email;
+    
+    
+    /**
+     * 
+     * @var string
+     * @Column(type="string", nullable=true)
+     */
     private $vista;
     
     
@@ -174,5 +182,11 @@ class AreaMunicipal {
         $this->areasuperior = $areasuperior;
     }
 
+    function getEmail(){
+        return $this->email;
+    }
 
+    function setEmail($email){
+        $this->email = $email;
+    }
 }

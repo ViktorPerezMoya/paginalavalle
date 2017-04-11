@@ -61,6 +61,7 @@ class Administracion_GobiernoController extends Zend_Controller_Action {
                     $area->setCargoanterior($form->cargoanterior->getValue());
                     $area->setDireccion($form->direccion->getValue());
                     $area->setTelefono($form->telefono->getValue());
+                    $area->setEmail($form->email->getValue());
                     $area->setFunciones($form->funciones->getValue());
                     $area->setActivo(true);
                     $area->setTipo($form->tipo->getValue());
@@ -91,6 +92,7 @@ class Administracion_GobiernoController extends Zend_Controller_Action {
         $form->cargoanterior->setValue($area->getCargoanterior());
         $form->direccion->setValue($area->getDireccion());
         $form->telefono->setValue($area->getTelefono());
+        $form->email->setValue($area->getEmail());
         $form->funciones->setValue($area->getFunciones());
         $form->tipo->setValue($area->getTipo());
         $form->dependede->setValue($area->getAreasuperior());
@@ -108,6 +110,7 @@ class Administracion_GobiernoController extends Zend_Controller_Action {
                     $area->setCargoanterior($form->cargoanterior->getValue());
                     $area->setDireccion($form->direccion->getValue());
                     $area->setTelefono($form->telefono->getValue());
+                    $area->setEmail($form->email->getValue());
                     $area->setFunciones($form->funciones->getValue());
                     $area->setTipo($form->tipo->getValue());
                     $area->setAreasuperior($form->dependede->getValue());

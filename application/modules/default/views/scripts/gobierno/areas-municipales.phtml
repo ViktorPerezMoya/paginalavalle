@@ -20,6 +20,7 @@
                                     <p><?php echo 'A cargo de : ' . $a->getAcargode(); ?></p>
                                     <p>Dirección: <?php echo $a->getDireccion(); ?></p>
                                     <p>Contacto: <?php echo $a->getTelefono(); ?></p>
+                                    <p>E-mail: <?php echo $a->getEmail(); ?></p>
                                     <center>
                                         <!--<a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-<?php // echo $a->getId(); ?>">Ver más</a>-->
                                         <button id="btn-secretaria-<?php echo $a->getId(); ?>" onclick="mostrarOficinasDependientes(<?php echo $a->getId(); ?>, 'orange', 'direccion')" class="btn btn-primary btn-sm">Oficinas Dependientes</button>
@@ -132,6 +133,7 @@ foreach ($areas as $a) {
                                     <p>A cargo de : ' + json[i]['acargode'] + '</p>\n\
                                     <p>Domicilio: ' + json[i]['direccion'] + '</p>\n\
                                     <p>Contacto: ' + json[i]['telefono'] + '</p>\n\
+                                    <p>Email: '+json[i]['email']+'</p>\n\
                                 </div>\n\
                             </div>\n\
                         </div>\n\

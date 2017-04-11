@@ -52,7 +52,7 @@ class Administracion_AcuerdoController extends Zend_Controller_Action {
 
 
                     if (sizeof($form->upload->getFileName()) > 0) {
-                        //$url = substr(strrchr($form->upload->getFileName(),   '/'), 1);//web
+                        //$url = substr(strrchr($form->upload->getFileName(), '/'), 1);//web
 
                         $url = substr(strrchr($form->upload->getFileName(), '\\'), 1); //localhost
                         $acu->setDescripcion(explode(".pdf", $url)[0]);
